@@ -1,0 +1,916 @@
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #1a1a1a;
+  --text-main: #1a1a1a;
+  --accent-color: #1a1a1a; /* Возвращаем черный для кнопок и акцентов */
+  --transition: all 0.3s ease;
+}
+
+/* Кнопки снова черные */
+.btn {
+  background-color: var(--bg-dark);
+  color: #ffffff !important;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+}
+
+/* Ссылки и жирный текст */
+.list li strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* Рамка у фото в блоке "Обо мне" */
+.about-photo {
+  box-shadow: 20px 20px 0px 0px var(--bg-dark);
+}
+
+/* Акцентная линия в цитате */
+.accent-text {
+  border-left: 2px solid var(--bg-dark);
+}
+
+/* Текстовые ссылки (телефон) */
+.phone-link a {
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-gold);
+  transition: var(--transition);
+}
+
+.phone-link a:hover {
+  color: var(--accent-gold);
+}
+
+/* Усиленный стиль для кнопки в Философии при наведении */
+.btn-outline-white:hover {
+    background-color: #ffffff !important; /* Фон точно станет белым */
+    color: #000000 !important;           /* Текст точно станет черным */
+    border-color: #ffffff !important;    /* Рамка станет белой */
+}
+
+/* Обновляем цвет тени у фото в "Обо мне" */
+.about-photo {
+  box-shadow: 20px 20px 0px 0px var(--accent-color);
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.nav-menu a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #000000;        /* Глубокий черный/графитовый цвет вместо синего */
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  transition: color 0.3s ease; /* Плавная смена цвета при наведении */
+}
+
+/* Цвет при наведении (hover) */
+.nav-links a:hover {
+  color: #767676; /* Благородный серый при наведении */
+}
+
+/* Чтобы ссылка не становилась фиолетовой после клика */
+.nav-links a:visited {
+  color: #1a1a1a;
+}
+  
+  /* Добавляем больше места сверху, чтобы Hero-секция не лезла под меню */
+  body {
+    padding-top: 100px; 
+  }
+}
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { 
+  font-family: 'Playfair Display', serif; 
+  font-weight: 400; 
+}
+
+.container { 
+  width: 90%; 
+  max-width: 1100px; 
+  margin: 0 auto; 
+}
+
+.text-center { text-align: center; }
+
+/* Анимация появления */
+.fade-in { 
+  animation: fadeIn 1.2s ease-out; 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero Section */
+.hero { 
+  padding: 140px 0 100px; 
+  text-align: center; 
+  background: var(--light-gray); 
+}
+
+.pre-title { 
+  display: block; 
+  text-transform: uppercase; 
+  letter-spacing: 3px; 
+  font-size: 11px; 
+  margin-bottom: 20px; 
+  color: var(--text-muted); 
+}
+
+.hero h1 { 
+  font-size: clamp(40px, 8vw, 72px); 
+  margin-bottom: 30px; 
+}
+
+.subtitle { 
+  font-size: clamp(18px, 3vw, 24px); 
+  max-width: 700px; 
+  margin: 0 auto 40px; 
+  font-family: 'Playfair Display', serif; 
+  font-style: italic; 
+}
+
+/* Sections & Grid */
+.section { 
+  padding: 100px 0; 
+}
+
+.section-light { 
+  background: var(--light-gray); 
+}
+
+.grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 60px; 
+  align-items: center; 
+}
+
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Списки и акценты */
+.list li { 
+  padding: 12px 0; 
+  border-bottom: 1px solid var(--border-color); 
+  list-style: none; 
+  font-size: 18px; 
+}
+
+.accent-text { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 22px; 
+  border-left: 2px solid var(--accent-color); 
+  padding-left: 30px; 
+  margin-top: 40px; 
+}
+
+/* Темная секция (теперь и для Философии) */
+.section-dark { 
+  background: var(--accent-color); 
+  color: white; 
+}
+
+.section-dark h2 { color: white; }
+
+.section-dark .list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .accent-text {
+  border-left: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.section-dark .section-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Фотографии */
+.image-divider { 
+  height: 70vh; 
+  overflow: hidden; 
+  background: #000; 
+}
+
+.main-photo { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center 20%; 
+  transition: var(--transition); 
+  opacity: 0.9;
+}
+
+.main-photo:hover { 
+  transform: scale(1.03); 
+  opacity: 1;
+}
+
+.about-photo { 
+  width: 100%; 
+  max-width: 500px;
+  box-shadow: 20px 20px 0px 0px var(--accent-color); 
+  border-radius: 2px;
+  display: block;
+}
+
+/* Преимущества (Features) */
+.features { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 40px; 
+}
+
+.feature-item h3 { 
+  font-size: 24px; 
+  margin-bottom: 15px; 
+}
+
+/* Кнопки */
+.btn { 
+  display: inline-block; 
+  padding: 16px 35px; 
+  background: var(--accent-color); 
+  color: white; 
+  text-decoration: none; 
+  font-size: 13px; 
+  letter-spacing: 1px; 
+  transition: var(--transition); 
+  text-transform: uppercase; 
+}
+
+.btn:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+}
+
+.btn-outline { 
+  background: transparent; 
+  color: var(--accent-color); 
+  border: 1px solid var(--accent-color); 
+}
+
+.btn-white { 
+  background: white; 
+  color: black; 
+}
+
+.btn-outline-white { 
+  background: transparent; 
+  color: white; 
+  border: 1px solid white; 
+}
+
+.hero-actions, .contact-buttons { 
+  display: flex; 
+  gap: 15px; 
+  justify-content: center; 
+  margin-bottom: 30px; 
+}
+
+/* Контакты (Dark) */
+.cta-desc { 
+  max-width: 600px; 
+  margin: 0 auto 40px; 
+  font-size: 18px; 
+  opacity: 0.8; 
+}
+
+.phone-link a { 
+  color: white; 
+  text-decoration: none; 
+  font-size: 28px; 
+  font-family: 'Playfair Display', serif; 
+}
+
+/* Футер */
+.footer { 
+  padding: 40px 0; 
+  text-align: center; 
+  font-size: 12px; 
+  color: var(--text-muted); 
+  border-top: 1px solid var(--border-color); 
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .hero-actions, .contact-buttons { flex-direction: column; }
+  .section { padding: 60px 0; }
+  .about-photo { box-shadow: 10px 10px 0px 0px var(--accent-color); }
+  .image-divider { height: 50vh; }
+}
+/* Video Section */
+.section { padding: 100px 0; }
+
+.video-grid {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.video-item {
+  width: 100%;
+  max-width: 780px;
+  position: relative;
+  padding-bottom: 40%; /* Соотношение 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 9px; /* Легкое закругление в твоем стиле */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+/* Контейнер для кнопок и телефона */
+#contact .container {
+    display: flex;
+    flex-direction: column; /* Элементы встают друг под друга */
+    align-items: center;    /* Центрирование по горизонтали */
+    text-align: center;
+}
+
+/* Группа кнопок (WhatsApp и Telegram) */
+.contact-buttons {
+    display: flex;
+    gap: 15px;              /* Расстояние между кнопками */
+    justify-content: center;
+    margin-bottom: 30px;    /* Отступ снизу, чтобы номер не прилипал к кнопкам */
+}
+
+/* Стили для ссылки с номером */
+.phone-link {
+    width: 100%;
+    display: block;
+}
+
+.phone-link a {
+    display: inline-block;
+    color: white; /* или var(--text-color), смотря какой фон */
+    text-decoration: none;
+    font-size: 28px;
+justify-content: center;
+    font-family: 'Playfair Display', serif;
+    transition: var(--transition);
+}
+
+.phone-link a:hover {
+    opacity: 0.7;
+}
+
+/* Адаптив для мобильных: кнопки тоже встают в колонку */
+@media (max-width: 768px) {
+    .contact-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px; /* Чтобы кнопки не были слишком широкими */
+    }
+}
+.video-item iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* Затемняющая подложка */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1.1); /* Степень затемнения */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    z-index: 5; /* Ниже видео, но выше остального контента */
+    pointer-events: none;
+}
+
+/* Когда видео активно, включаем затемнение */
+body.video-active::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Поднимаем блок с видео над затемнением */
+.video-section-container { /* Оберните вашу секцию с видео в этот класс */
+    position: relative;
+    z-index: 10;
+}
+/* Создаем невидимый слой поверх сайта */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Цвет затемнения */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Когда скрипт добавляет класс video-active, слой становится видимым */
+body.video-active::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Поднимаем секцию с видео над затемнением */
+.section { /* или конкретный класс вашей секции с видео */
+    position: relative;
+    z-index: 10;
+}
+/* Сетка: левая колонка под фото, правая под текст */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; 
+  gap: 80px;
+  align-items: center;
+}
+
+.about-image-wrapper {
+  display: flex;
+  justify-content: flex-start; /* Прижимаем фото к левому краю */
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 450px; /* Ограничиваем ширину, чтобы не было слишком огромным */
+  height: auto;
+  border-radius: 2px;
+  /* Ваша фирменная черная рамка-тень */
+  box-shadow: 20px 20px 0px 0px var(--accent-color);
+  transition: var(--transition);
+}
+
+.about-photo:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 25px 25px 0px 0px var(--accent-color);
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Адаптив для телефонов */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr; /* На мобилках в одну колонку */
+    gap: 40px;
+  }
+  
+  .about-image-wrapper {
+    justify-content: center; /* На мобилках фото по центру */
+    padding-right: 20px; /* Место для тени */
+  }
+  
+  .about-text {
+    text-align: center; /* Текст на мобилках по центру */
+  }
+
+  .accent-text {
+    border-left: none;
+    border-top: 2px solid var(--accent-color);
+    padding: 20px 0 0 0;
+  }
+}
+.last-paragraph {
+    margin-top: 30px; /* Отрегулируйте значение, если нужен отступ больше или меньше */
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input {
+  padding: 15px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  font-family: inherit;
+  outline: none;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.contact-form input:focus { border-color: white; }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Отступ сверху, чтобы заголовок "Обсудим ваше событие" не закрывался меню */
+#contact {
+  scroll-margin-top: 100px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+/* ГАЛЕРЕЯ — ЖЕСТКАЯ ФИКСАЦИЯ */
+#gallery {
+    padding: 80px 0;
+    width: 100%;
+    overflow: hidden; /* Чтобы ничего не вылетало за границы */
+}
+
+.photo-mosaic {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-auto-rows: 280px !important; /* Фиксируем высоту ячейки */
+    gap: 20px;
+    margin-top: 50px;
+}
+
+/* Контейнеры для фото */
+.photo-item {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important; /* Заставляем блок занять ячейку сетки */
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+/* Спец-размеры */
+.photo-item.tall { grid-row: span 2 !important; }
+.photo-item.wide { grid-column: span 2 !important; }
+
+/* Сами изображения — УПРАВЛЯЕМ ИМИ ЖЕСТКО */
+.photo-item img {
+    position: absolute; /* Вырываем из потока, чтобы не растягивали блок */
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Обрезает фото под размер рамки */
+    filter: grayscale(100%);
+    transition: transform 0.8s ease, filter 2.5s ease-in-out;
+}
+
+.photo-mosaic.is-visible .photo-item img {
+    filter: grayscale(0%) !important;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+@media (max-width: 768px) {
+    .photo-mosaic {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-auto-rows: 220px !important;
+        gap: 10px;
+    }
+    .photo-item.wide { grid-column: span 2 !important; }
+}
+/* Основной стиль кнопок (прямоугольные, как тебе нравится) */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+/* Белая кнопка с черным текстом */
+.btn-white {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Кнопка с рамкой (Outline) */
+.btn-outline-white {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline-white:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+/* Настройка текста в Философии, чтобы не резал глаза */
+.section-dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.section-dark .pre-title {
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.list li {
+    color: #b0b0b0; /* Тот самый мягкий цвет */
+    margin-bottom: 15px;
+    list-style: none;
+}
+/* КНОПКИ WHATSAPP / TELEGRAM / ОТПРАВИТЬ ЗАПРОС */
+
+/* 1. Стиль для белых кнопок (WhatsApp и Отправить запрос) */
+.btn-outline-white, 
+#tg-form .btn-white {
+    background-color: #ffffff !important;
+    color: #000000 !important; /* Изначально черный текст на белом */
+    border: 1px solid #ffffff !important;
+}
+.btn-white:hover {
+    background-color: #333333 !important; /* При наведении темнеют */
+    color: #ffffff !important;           /* Текст становится белым */
+    border-color: #333333 !important;
+}
+
+/* 2. Стиль для кнопок с рамкой (Telegram) */
+.btn-outline-white {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.btn-outline-white:hover {
+    background-color: #ffffff !important; /* При наведении становится белой */
+    color: #000000 !important;           /* Текст становится черным */
+    border-color: #ffffff !important;
+}
+/* ЕДИНЫЙ СТИЛЬ КНОПОК (КАК ТЕЛЕГРАМ) */
+.btn-outline-white {
+    background-color: transparent !important; /* Прозрачный фон */
+    color: #ffffff !important;                /* Белый текст */
+    border: 1px solid rgba(255, 255, 255, 0.5) !important; /* Тонкая полупрозрачная рамка */
+    padding: 14px 28px !important;            /* Размер прямоугольника */
+    text-transform: uppercase !important;     /* Заглавные буквы */
+    letter-spacing: 1px !important;           /* Расстояние между буквами */
+    transition: all 0.3s ease !important;     /* Плавность эффекта */
+    display: inline-block !important;
+}
+
+/* ЭФФЕКТ ПРИ НАВЕДЕНИИ */
+.btn-outline-white:hover {
+    background-color: #ffffff !important;     /* Заливка белым */
+    color: #000000 !important;                /* Текст становится черным */
+    border-color: #ffffff !important;         /* Рамка сливается с фоном */
+    transform: translateY(-2px);              /* Легкий прыжок вверх */
+}
+/* Кнопка с черной рамкой для светлых секций (Hero) */
+.hero .btn-outline-white {
+    color: #000000 !important; /* Черный текст */
+    border: 1px solid rgba(0, 0, 0, 0.2) !important; /* Тонкая черная рамка */
+}
+
+/* Эффект при наведении для этой кнопки */
+.hero .btn-outline-white:hover {
+    background-color: #000000 !important; /* Заливка черным */
+    color: #ffffff !important;           /* Текст становится белым */
+    border-color: #000000 !important;
+}
+/* Настройка динамической кнопки */
+.btn-dynamic {
+    position: relative;
+    overflow: hidden; /* Чтобы текст не вылезал за границы */
+}
+
+/* При наведении прячем основной текст (span) */
+.btn-dynamic:hover span {
+    display: none;
+}
+
+/* При наведении вставляем текст из атрибута data-hover */
+.btn-dynamic:hover::after {
+    content: attr(data-hover); /* Магия: берем текст из HTML */
+    display: block;
+    animation: fadeIn 0.3s ease; /* Плавное появление нового текста */
+}
+
+/* Анимация для мягкого появления текста */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.btn-dynamic {
+    position: relative;
+    overflow: hidden;
+    
+    /* ФИКСИРУЕМ РАЗМЕР */
+    min-width: 180px;       /* Подбери число так, чтобы самый длинный текст влезал */
+    display: inline-flex;   /* Позволяет центрировать текст внутри */
+    justify-content: center; /* Центрирует текст по горизонтали */
+    align-items: center;    /* Центрирует текст по вертикали */
+    
+    transition: all 0.3s ease !important;
+}
+
+/* Чтобы текст внутри не смещался */
+.btn-dynamic span,
+.btn-dynamic::after {
+    width: 100%;
+    text-align: center;
+}
+.hero-actions .btn-dynamic {
+    /* Жестко фиксируем ширину */
+    width: 280px !important; 
+    
+    /* Убираем влияние внутренних отступов на размер */
+    box-sizing: border-box !important; 
+    
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    
+    /* Оставляем только вертикальный отступ */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+    /* Чтобы текст не переносился на вторую строку */
+    white-space: nowrap !important; 
+}
+/* 1. Настройка для ПК (по умолчанию) */
+.nav-menu {
+    display: flex;             /* Включаем гибкий контейнер */
+    flex-direction: row;       /* Выстраиваем в горизонтальную линию */
+    justify-content: center;   /* Центрируем меню по ширине */
+    gap: 30px;                 /* Расстояние между ссылками */
+    padding: 20px 0;
+}
+
+/* 2. Настройка для МОБИЛЬНЫХ (экран меньше 768px) */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column; /* Переключаем в вертикальный столбик */
+        align-items: center;    /* Центрируем ссылки в столбике */
+        gap: 15px;              /* Уменьшаем расстояние для компактности */
+    }
+}
+/* Убираем точки у списка */
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Выстраиваем в ряд на ПК */
+    gap: 30px;     /* Расстояние между пунктами */
+}
+
+/* Оформляем текст ссылок */
+.nav-menu li a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #ffffff;        /* Цвет текста (белый) */
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    opacity: 0.7; /* Эффект при наведении */
+}
+/* Названия блоков (темы меню) */
+.nav-menu li a {
+    color: #000000 !important;    /* ПРИНУДИТЕЛЬНО ЧЕРНЫЙ ЦВЕТ */
+    text-decoration: none !important; /* Убираем подчеркивание */
+    text-transform: uppercase;     /* Заглавные буквы */
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Логотип (Александр Васильев) */
+.logo {
+    color: #000000 !important;    /* ТОЖЕ ЧЕРНЫЙ */
+    font-weight: 800;
+    text-transform: uppercase;
+}
+@media (max-width: 768px) {
+    .gallery {
+        display: flex;
+        flex-direction: column; /* Выстраиваем в столбик */
+    }
+
+    /* Назначаем веса (порядок) */
+    .item-6 { order: 1; }
+    .item-9 { order: 2; } /* Теперь 9-я идет сразу за 6-й */
+    .item-4 { order: 3; } /* А 4-я после них */
+    
+    /* Остальные фото пойдут следом, если им не задан order */
+}
+@media (max-width: 768px) {
+    .hero-actions {
+        display: flex;
+        flex-direction: column; /* Кнопки друг под другом */
+        align-items: center;    /* Центровка */
+        gap: 12px;              /* Компактное расстояние */
+        width: 100%;
+    }
+
+    .hero-actions .btn-dynamic {
+        width: 100% !important;   /* На мобиле лучше на всю ширину */
+        max-width: 300px !important; /* Но не шире 300px, чтобы не гиганты */
+    }
+}
+@media (max-width: 768px) {
+    section {
+        padding: 40px 0 !important; /* Уменьшаем отступы сверху и снизу */
+    }
+    
+    h1, h2 {
+        font-size: 28px !important; /* Уменьшаем заголовки, чтобы не кричали */
+    }
+}
+@media (max-width: 768px) {
+    /* Скрываем список меню и саму навигацию, если она не нужна */
+    .nav-menu, .navbar-nav, .nav-container ul {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+@media (max-width: 768px) {
+    .contact-buttons {
+        display: flex !important;
+        flex-direction: column !important; /* Ставим одну под другую */
+        align-items: center !important;    /* Центрируем по горизонтали */
+        justify-content: center !important;
+        gap: 15px !important;              /* Расстояние между ними */
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Делаем сами кнопки одинаковыми и аккуратными */
+    .contact-buttons .btn-dynamic {
+        width: 280px !important;           /* Фиксированная ширина как в Hero */
+        min-width: 280px !important;
+        margin: 0 auto !important;         /* Дополнительная центровка */
+    }
+}
+.contact-section { 
+    text-align: center !important; 
+}
