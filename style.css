@@ -179,7 +179,7 @@ h1, h2, h3 {
 
 /* Hero Section */
 .hero { 
-  padding: 140px 0 100px; 
+  padding: 70px 0 10px; 
   text-align: center; 
   background: var(--light-gray); 
 }
@@ -215,7 +215,7 @@ h1, h2, h3 {
     /* Попробуй -35% или даже -45%, пока кнопки не станут свободными */
     margin-left: -45% !important; 
     
-    margin-bottom: -20px !important; 
+    margin-bottom: -0.5px !important; 
     position: relative;
     z-index: 1; /* Опускаем чуть ниже текста, но выше фона */
 }
@@ -1083,4 +1083,1142 @@ html {
 
 .gallery-item a:hover img {
     transform: scale(1.05) !important;
+}
+/* Делаем все кнопки в секции контактов одинаковыми */
+#contact .btn {
+    height: 50px; /* Фиксированная высота для всех */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+/* Убираем возможный перекос у формы */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-form .btn {
+    margin-top: 10px; /* Подгони это число (например, 12px или 8px), чтобы линия стала идеально ровной */
+}
+.contact-form {
+    margin-top: -45px !important; /* Поднимает всю форму вверх */
+    position: relative;
+    z-index: 5;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.list-centered {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 40px auto 0; /* Центрируем сам блок списка */
+}
+
+.list-centered li {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0; /* Скрыто изначально */
+    transform: translateY(10px); /* Смещено вниз */
+    transition: all 0.8s ease;
+}
+
+/* Класс, который добавит скрипт при скролле */
+.scroll-reveal.active li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Задержка для каждого пункта, чтобы вылетали по очереди */
+.list-centered li:nth-child(2) { transition-delay: 0.2s; }
+.list-centered li:nth-child(3) { transition-delay: 0.4s; }
+
+.philosophy-header {
+    margin-top: -60px !important; /* Поднимает заголовок выше к границе блоков */
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10; /* Чтобы текст был поверх, если фото до него достает */
+}
+
+.philosophy-header h2 {
+    color: #ffffff !important;
+    font-size: 2.5rem;
+}
+
+.philosophy-header .pre-title {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.list-centered {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+.list-centered li {
+    color: #ffffff !important; /* Текст теперь точно будет виден */
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+}
+.list-centered li {
+    /* Используем мягкий серо-белый вместо чистого белого */
+    color: rgba(255, 255, 255, 0.7) !important; 
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-weight: 300;
+    transition: all 0.8s ease;
+}
+
+/* Эффект: при появлении текст становится чуть заметнее, но не ослепляет */
+.scroll-reveal.active li {
+    opacity: 0.85; 
+    transform: translateY(0);
+}
+
+/* Эффект для десктопа */
+.photo-item {
+    overflow: hidden;
+    border-radius: 8px; /* Немного скруглим углы для эстетики */
+    background: #000;
+}
+
+.photo-item img {
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 1s ease;
+    filter: grayscale(100%);
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* При наведении фото становится цветным и слегка увеличивается */
+.photo-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 768px) {
+    /* На мобильных фото будут становиться цветными, когда попадают в центр экрана */
+    .photo-mosaic.is-visible .photo-item img {
+        filter: grayscale(0%);
+    }
+}
+
+.review-card {
+    position: relative;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px; /* Чуть более заметные скругления */
+    border-bottom: none; /* Убираем нижнюю линию, если она была */
+    transition: all 0.3s ease;
+    cursor: pointer; /* Показываем, что карточка интерактивна */
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.review-photo-wrapper {
+    width: 80px; /* Размер круга */
+    height: 80px;
+    border-radius: 50%; /* Делаем круглым */
+    overflow: hidden;
+    margin: 0 auto 20px auto; /* Центрируем и добавляем отступ */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Тонкая рамка */
+}
+
+.review-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%); /* По умолчанию ч/б */
+    transition: filter 0.5s ease;
+}
+
+.review-card:hover .review-photo {
+    filter: grayscale(0%); /* При наведении фото становится цветным */
+}
+
+.review-highlight {
+    text-align: center; /* Центрируем заголовок */
+    margin-bottom: 25px;
+    font-size: 1.5rem; /* Чуть меньше, чтобы не "давил" на фото */
+}
+
+.review-content-area {
+    min-height: 120px; /* Резервируем место под текст, чтобы не было "прыжков" */
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.review-content-area span {
+    opacity: 0; /* Все слова скрыты по умолчанию */
+    transition: opacity 0.05s ease; /* Быстрое появление */
+    display: inline-block; /* Для корректного применения opacity */
+}
+
+.review-author {
+    text-align: center; /* Центрируем автора */
+    margin-top: 20px;
+}
+.review-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Это важно: фото заполнит круг без искажений */
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+.review-card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.review-visual-stack {
+    position: relative;
+    height: 180px; /* Высота под фото и текст */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.review-photo-wrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.review-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+/* Эффект при наведении на карточку */
+.review-card:hover .review-photo-wrapper {
+    opacity: 0; /* Фото исчезает */
+    transform: scale(0.8);
+}
+
+.review-content-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    pointer-events: none; /* Чтобы не мешало ховеру */
+}
+
+.review-content-area span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    margin: 2px 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.review-highlight {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    margin: 15px 0 5px;
+}
+
+.review-card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.review-visual-stack {
+    position: relative;
+    height: 180px; /* Высота под фото и текст */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.review-photo-wrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.review-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+/* Эффект при наведении на карточку */
+.review-card:hover .review-photo-wrapper {
+    opacity: 0; /* Фото исчезает */
+    transform: scale(0.8);
+}
+
+.review-content-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    pointer-events: none; /* Чтобы не мешало ховеру */
+}
+
+.review-content-area span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    margin: 2px 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.review-highlight {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    margin: 15px 0 5px;
+}
+
+
+.review-content-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10; /* Поднимаем над фото */
+    padding: 10px;
+}
+
+.review-content-area span {
+    /* Если фон сайта светлый — ставим темный цвет, если черный — белый */
+    color: #1a1a1a !important; 
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 2px 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.review-card:hover {
+    background: #f9f9f9; /* Или другой цвет, чтобы выделить карточку */
+    border-color: rgba(0,0,0,0.1);
+}
+
+
+/* Отступ между секциями */
+#reviews {
+    margin-top: 80px; /* Расстояние от галереи */
+    padding: 100px 0;
+    background-color: #ffffff; /* Изначально белый фон */
+    transition: background-color 0.6s ease; /* Плавная смена фона всей секции, если нужно */
+}
+
+.review-card {
+    background: #ffffff; /* Белый фон карточки */
+    border: 1px solid #e0e0e0;
+    padding: 40px;
+    border-radius: 12px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card:hover .review-photo-wrapper {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
+}
+
+<style>
+.reviews-section-wrapper {
+    padding: 100px 0;
+    background-color: #ffffff !important;
+    margin-top: 80px;
+}
+
+.review-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.review-visual-stack {
+    position: relative;
+    height: 250px; /* Увеличил высоту для скриншота */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.review-photo-wrapper {
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.review-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Чтобы скриншот не обрезался */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.review-content-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    z-index: 1; /* Текст под фото, пока не навели */
+}
+
+/* ЭТОТ БЛОК ОТВЕЧАЕТ ЗА ВИДИМОСТЬ СЛОВ */
+.review-content-area span {
+    color: #ffffff !important; /* Белый текст на графите */
+    font-size: 1.1rem;
+    margin: 3px;
+    opacity: 0;
+    font-weight: 300;
+    transition: opacity 0.2s ease;
+}
+
+/* МАГИЯ ХОВЕРА */
+.review-card:hover {
+    background: #2c2c2c !important; /* Графитовый фон */
+}
+
+.review-card:hover .review-photo-wrapper {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.review-card:hover .review-content-area {
+    z-index: 5; /* Выносим текст вперед */
+}
+
+.review-card:hover .review-highlight, 
+.review-card:hover .author-name {
+    color: white !important;
+}
+</style>
+
+
+<style>
+.reviews-section-wrapper {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.review-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fcfcfc;
+    border-radius: 24px; /* Закругленные углы прямоугольника */
+    padding: 30px;
+    border: 1px solid #eee;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: pointer;
+}
+
+.review-visual-stack {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Высота под скриншот */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+/* Контейнер для слов-крючков */
+.hooks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 2;
+}
+
+.hook-word {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    background: rgba(0,0,0,0.03);
+    padding: 5px 15px;
+    border-radius: 50px;
+    opacity: 0.8;
+}
+
+/* Скриншот */
+.screenshot-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Изначально скрыт */
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+    z-index: 1;
+padding: 30px; /* Чем больше число, тем меньше будет скриншот */
+    box-sizing: border-box;
+}
+
+.review-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполняет прямоугольник */
+    border-radius: 16px;
+}
+
+/* Эффект наведения */
+.review-card:hover {
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.review-card:hover .hooks-container {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.review-card:hover .screenshot-wrapper {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.review-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+</style>
+
+<style>
+.reviews-section-wrapper {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.review-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 24px;
+    padding: 25px;
+    border: 1px solid #f0f0f0;
+    transition: box-shadow 0.4s ease;
+}
+
+/* Рамка для фото и скрина */
+.review-visual-box {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Фиксированная высота */
+    border-radius: 18px;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+
+.couple-img-layer, .screenshot-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.screenshot-layer {
+    opacity: 0;
+    transform: scale(1.05);
+    padding: 30px; /* Отступ чтобы скрин не прилипал */
+    box-sizing: border-box;
+    background: #2c2c2c; /* Темный фон для контраста скрина */
+}
+
+.review-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Ховер эффект ТОЛЬКО для картинки */
+.review-card:hover .couple-img-layer {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.review-card:hover .screenshot-layer {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Стили для слов-крючков ниже фото */
+.hooks-inline-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 25px 0;
+}
+
+.hook-word {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    padding: 5px 12px;
+    border-bottom: 1px solid #eee; /* Элегантное подчеркивание вместо рамок */
+}
+
+.review-footer-info {
+    text-align: center;
+    border-top: 1px solid #f5f5f5;
+    padding-top: 20px;
+}
+</style>
+
+
+<style>
+/* Контейнер сетки */
+.reviews-grid {
+    display: grid;
+    /* Создаем 3 колонки, каждая по 320px (можно менять под нужный размер) */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px; /* Расстояние между карточками */
+    justify-content: start; /* Прижимаем к левому краю */
+    text-align: left; /* Текст внутри тоже влево */
+}
+
+.review-card {
+    max-width: 320px; /* Уменьшили ширину плашки */
+    margin: 0; /* Убрали центрирование (margin: 0 auto больше не нужен) */
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.review-visual-box {
+    height: 300px; /* Уменьшили высоту под новый размер */
+}
+
+.hook-word {
+    font-size: 0.9rem; /* Чуть уменьшили шрифт крючков */
+    padding: 4px 10px;
+}
+
+.review-title {
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.review-footer-info {
+    text-align: left;
+}
+
+.hooks-inline-container {
+    justify-content: flex-start; /* Крючки тоже с левого края */
+}
+
+/* Адаптив: на мобилках в одну колонку */
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+    .review-card {
+        max-width: 100%;
+    }
+}
+</style>
+
+
+
+<style>
+.reviews-section-wrapper {
+    padding: 80px 0;
+    background: #ffffff;
+    overflow-x: hidden; /* Чтобы не было горизонтальной прокрутки сайта */
+}
+
+/* Контейнер, который выстраивает всё в ряд */
+.reviews-grid {
+    display: flex;             /* Включаем гибкий ряд */
+    flex-direction: row;       /* Направление — горизонтально */
+    flex-wrap: nowrap;         /* Не переносить на новую строку (если хочешь в один ряд) */
+    gap: 30px;                 /* Расстояние между плашками */
+    justify-content: flex-start; /* Прижать к левому краю */
+    align-items: flex-start;
+    padding-bottom: 20px;
+}
+
+/* Настройки самой плашки */
+.review-card {
+    flex: 0 0 320px;           /* Фиксированная ширина каждой плашки: не растет, не сжимается, 320px */
+    background: #fff;
+    border-radius: 24px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.4s ease;
+}
+
+.review-visual-box {
+    position: relative;
+    width: 100%;
+    height: 350px;             /* Высота прямоугольника */
+    border-radius: 16px;
+    overflow: hidden;
+    background: #2c2c2c;       /* Фон для скрина */
+}
+
+/* Эффект наведения (скриншот вместо фото) */
+.couple-img-layer, .screenshot-layer {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.5s ease;
+}
+
+.screenshot-layer {
+    opacity: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.review-card:hover .couple-img-layer { opacity: 0; }
+.review-card:hover .screenshot-layer { opacity: 1; }
+
+.review-screenshot, .couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-screenshot {
+    object-fit: contain;       /* Чтобы скриншот не обрезался */
+}
+
+/* Мобильная адаптация: если экрана не хватает, появится скролл в бок */
+@media (max-width: 1024px) {
+    .reviews-grid {
+        overflow-x: auto;      /* Разрешаем скролл пальцем на телефонах */
+        padding-left: 20px;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+</style>
+
+<style>
+.reviews-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: flex-start;
+    padding-bottom: 40px;
+}
+
+.review-card {
+    flex: 0 0 320px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.5s ease;
+    text-align: left;
+}
+
+.review-visual-box {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #2c2c2c; /* Темный фон под скриншотом */
+}
+
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* filter: grayscale(100%); <-- УДАЛЕНО, ТЕПЕРЬ ЦВЕТНЫЕ */
+    transition: transform 0.6s ease;
+}
+
+.screenshot-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+.review-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ЭФФЕКТЫ ПРИ НАВЕДЕНИИ */
+
+.review-card:hover {
+    background: #2c2c2c; /* Сама карточка тоже может темнеть для стиля */
+    border-color: #2c2c2c;
+}
+
+.review-card:hover .couple-img-layer {
+    opacity: 0;
+}
+
+.review-card:hover .screenshot-layer {
+    opacity: 1;
+}
+
+/* МЕНЯЕМ ЦВЕТ ТЕКСТА НА БЕЛЫЙ ПРИ НАВЕДЕНИИ */
+.review-card:hover .review-title {
+    color: #ffffff !important;
+}
+
+.review-card:hover .review-subtitle,
+.review-card:hover .hook-word {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.review-card:hover .hook-word {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Базовые стили текста */
+.review-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-top: 15px;
+    color: #1a1a1a;
+    transition: color 0.4s ease;
+}
+
+.review-subtitle {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+.hooks-inline-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.hook-word {
+    font-size: 0.85rem;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    transition: all 0.4s ease;
+}
+</style>
+
+
+<style>
+/* Контейнер для горизонтального ряда */
+.reviews-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: flex-start;
+    padding-bottom: 40px;
+    /* Если плашек будет много, можно добавить overflow-x: auto для скролла */
+}
+
+.review-card {
+    flex: 0 0 320px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Окно для визуала */
+.review-visual-box {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #2c2c2c; /* Фон под скриншотом */
+}
+
+/* ФОТО ПАРЫ — ЦВЕТНОЕ ИЗНАЧАЛЬНО */
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* СЛОЙ СО СКРИНШОТОМ */
+.screenshot-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.review-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ЭФФЕКТЫ ПРИ НАВЕДЕНИИ */
+.review-card:hover {
+    background: #2c2c2c; /* Плашка темнеет */
+    border-color: #2c2c2c;
+    transform: translateY(-5px);
+}
+
+.review-card:hover .couple-img-layer {
+    opacity: 0;
+}
+
+.review-card:hover .screenshot-layer {
+    opacity: 1;
+}
+
+/* ЦЕНТРИРОВАНИЕ ТЕКСТА */
+.review-content-bottom {
+    text-align: center; /* Центрируем текст */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hooks-inline-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Центрируем крючки */
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.hook-word {
+    font-size: 0.85rem;
+    color: #666;
+    border-bottom: 1px solid #eee;
+    transition: all 0.4s ease;
+}
+
+/* ИМЯ ПАРЫ — БЕЛЫЙ ЦВЕТ ПРИ НАВЕДЕНИИ */
+.review-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin: 10px 0 0 0;
+    color: #1a1a1a;
+    transition: color 0.4s ease;
+}
+
+.review-card:hover .review-title {
+    color: #ffffff !important;
+}
+
+.review-card:hover .hook-word {
+    color: rgba(255,255,255,0.6);
+    border-bottom-color: rgba(255,255,255,0.2);
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .reviews-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .review-card {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 350px;
+    }
+}
+</style>
+
+
+<style>
+/* Начальное состояние: ч/б и чуть приглушенно */
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%); /* Ч/б изначально */
+    transition: filter 1.5s ease, transform 0.6s ease; /* Плавный переход цвета */
+}
+
+/* Когда доскроллили: возвращаем цвет */
+.reviews-grid.is-visible .couple-photo {
+    filter: grayscale(0%);
+}
+
+/* Центрирование имен и крючков */
+.review-content-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* При наведении — имя белое */
+.review-card:hover .review-title {
+    color: #ffffff !important;
+}
+</style>
+
+
+/* ФИНАЛЬНАЯ ЗАПЛАТКА ДЛЯ ОТЗЫВОВ */
+
+/* 1. Центрируем имена и весь контент */
+.review-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    background: #fff; /* Изначально белый фон */
+    transition: all 0.5s ease !important;
+}
+
+.review-content-bottom, 
+.review-footer-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 2. Фото пар — ЦВЕТНЫЕ СРАЗУ (перебиваем универсальный ч/б код) */
+.couple-photo {
+    filter: none !important; /* Убираем ч/б */
+    -webkit-filter: grayscale(0) !important;
+    transition: opacity 0.5s ease !important;
+}
+
+/* 3. Эффект смены цвета при наведении */
+.review-card:hover {
+    background: #1a1a1a !important; /* Цвет из твоей переменной --bg-dark */
+}
+
+/* Имя пары становится БЕЛЫМ при наведении */
+.review-card:hover .review-title {
+    color: #ffffff !important;
+}
+
+/* Крючки (слова) становятся светлыми при наведении */
+.review-card:hover .hook-word {
+    color: rgba(255, 255, 255, 0.7) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Исправляем скриншот (чтобы он был внутри и не мешал тексту) */
+.screenshot-layer {
+    background: #1a1a1a; /* Чтобы фон под скрином совпадал с карточкой */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px; /* Отступ чтобы скрин не прилипал к краям */
+}
+
+.review-screenshot {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain !important;
 }

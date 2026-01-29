@@ -70,21 +70,23 @@
     </div>
 </header>
 
-<section class="section section-dark">
-    <div class="container grid-2">
-        <div>
+<section class="section section-dark" id="philosophy">
+    <div class="container text-center">
+        <div class="philosophy-header">
             <span class="pre-title">Философия</span>
             <h2>Это про вас, если</h2>
         </div>
-        <div>
-            <ul class="list">
+        
+        <div class="philosophy-content scroll-reveal">
+            <ul class="list-centered">
                 <li>Вам важно уважение к семье и личным границам гостей</li>
                 <li>Вы хотите живое общение вместо заученных шуток</li>
                 <li>Для вас важен ритм и эстетика, а не громкий хаос</li>
-                <a href="#contact" class="btn btn-outline-white" style="margin-top: 30px;">Узнать свободные даты</a>
             </ul>
-<section id="philosophy" class="philosophy-section">
-   </section>
+            <a href="#contact" class="btn btn-outline-white" style="margin-top: 40px;">Узнать свободные даты</a>
+        </div>
+    </div>
+</section>
         </div>
     </div>
 </section>
@@ -142,11 +144,63 @@
     <div class="photo-item"><img src="photo8.jpg" alt="8"></div>
 </div>
     </div>
+
+
+<section class="section reviews-section-wrapper" id="reviews">
+    <div class="container">
+        <span class="pre-title">Отзывы</span>
+        <h2 style="margin-bottom: 40px;">Истории пар</h2>
+
+        <div class="reviews-grid">
+            
+            <div class="review-card dynamic-review" data-words="Атмосфера, Везение, Команда">
+                <div class="review-visual-box">
+                    <div class="couple-img-layer"><img src="para1.jpg" class="couple-photo"></div>
+                    <div class="screenshot-layer"><img src="skrin1.jpg" class="review-screenshot"></div>
+                </div>
+                <div class="review-content-bottom">
+                    <div class="hooks-inline-container"></div>
+                    <div class="review-footer-info">
+                        <h3 class="review-title">Саша и Настасья</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card dynamic-review" data-words="Спокойствие, Тактичность, Стиль">
+                <div class="review-visual-box">
+                    <div class="couple-img-layer"><img src="para2.jpg" class="couple-photo"></div>
+                    <div class="screenshot-layer"><img src="skrin2.jpg" class="review-screenshot"></div>
+                </div>
+                <div class="review-content-bottom">
+                    <div class="hooks-inline-container"></div>
+                    <div class="review-footer-info">
+                        <h3 class="review-title">Александр и Янина</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card dynamic-review" data-words="Драйв, Юмор, Профессионализм">
+                <div class="review-visual-box">
+                    <div class="couple-img-layer"><img src="para3.jpg" class="couple-photo"></div>
+                    <div class="screenshot-layer"><img src="skrin3.jpg" class="review-screenshot"></div>
+                </div>
+                <div class="review-content-bottom">
+                    <div class="hooks-inline-container"></div>
+                    <div class="review-footer-info">
+                        <h3 class="review-title">Дмитрий и Елена</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div> </div>
+</section>
 </section>
 <section class="section section-dark" id="contact">
   <div class="container">
     <div class="grid-2">
       <div>
+
+
         <span class="pre-title" style="color: rgba(255,255,255,0.6)">Бронирование</span>
         <h2>Обсудим ваше событие?</h2>
         <p class="cta-desc">Оставьте детали, и я свяжусь с вами в течение пары часов.</p>
@@ -268,6 +322,169 @@ document.addEventListener("DOMContentLoaded", function() {
     if (galleryTarget) {
         galleryObserver.observe(galleryTarget);
     }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        threshold: 0.2 // Сработает, когда 20% блока покажется на экране
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Добавляем класс анимации всему блоку
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    const target = document.querySelector('.philosophy-content');
+    if (target) observer.observe(target);
+});
+</script>
+<style>
+document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.dynamic-review');
+
+    cards.forEach(card => {
+        const text = card.getAttribute('data-text');
+        const area = card.querySelector('.review-content-area');
+        const words = text.split(' ');
+
+        card.addEventListener('mouseenter', () => {
+            area.innerHTML = ''; // Чистим область
+            
+            // Создаем слова
+            words.forEach(word => {
+                const span = document.createElement('span');
+                span.textContent = word;
+                area.appendChild(span);
+            });
+
+            const spans = area.querySelectorAll('span');
+            let indices = Array.from(Array(spans.length).keys());
+            indices.sort(() => Math.random() - 0.5); // Рандомный порядок
+
+            indices.forEach((randomIndex, i) => {
+                setTimeout(() => {
+                    if (spans[randomIndex]) spans[randomIndex].style.opacity = "1";
+                }, i * 40); // Скорость появления слов
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // При уходе мыши можно либо оставить текст, либо скрыть
+            const spans = area.querySelectorAll('span');
+            spans.forEach(s => s.style.opacity = "0");
+        });
+    });
+});
+<style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const card = document.querySelector('.dynamic-review');
+    if (!card) return;
+
+    const text = card.getAttribute('data-text');
+    const area = card.querySelector('.review-content-area');
+    const words = text.split(' ');
+
+    card.addEventListener('mouseenter', () => {
+        area.innerHTML = ''; 
+        words.forEach(word => {
+            const span = document.createElement('span');
+            span.textContent = word + ' ';
+            area.appendChild(span);
+        });
+
+        const spans = area.querySelectorAll('span');
+        let indices = Array.from(Array(spans.length).keys()).sort(() => Math.random() - 0.5);
+
+        indices.forEach((idx, i) => {
+            setTimeout(() => {
+                if (spans[idx]) spans[idx].style.opacity = "1";
+            }, i * 40);
+        });
+    });
+
+    card.addEventListener('mouseleave', () => {
+        area.querySelectorAll('span').forEach(s => s.style.opacity = "0");
+    });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const card = document.querySelector('.status-hooks');
+    if (!card) return;
+
+    const hooksData = card.getAttribute('data-words');
+    const container = card.querySelector('.hooks-container');
+    const words = hooksData.split(',');
+
+    words.forEach(word => {
+        const span = document.createElement('span');
+        span.className = 'hook-word';
+        span.textContent = word.trim();
+        container.appendChild(span);
+    });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.dynamic-review');
+    
+    cards.forEach(card => {
+        const hooksData = card.getAttribute('data-words');
+        const container = card.querySelector('.hooks-inline-container');
+        if (hooksData && container) {
+            const words = hooksData.split(',');
+            words.forEach(word => {
+                const span = document.createElement('span');
+                span.className = 'hook-word';
+                span.textContent = word.trim();
+                container.appendChild(span);
+            });
+        }
+    });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Рисуем крючки для всех карточек
+    const cards = document.querySelectorAll('.dynamic-review');
+    cards.forEach(card => {
+        const hooksData = card.getAttribute('data-words');
+        const container = card.querySelector('.hooks-inline-container');
+        if (hooksData && container) {
+            const words = hooksData.split(',');
+            words.forEach(word => {
+                const span = document.createElement('span');
+                span.className = 'hook-word';
+                span.textContent = word.trim();
+                container.appendChild(span);
+            });
+        }
+    });
+
+    // 2. Логика появления цвета при скролле
+    const reviewsGrid = document.querySelector('.reviews-grid');
+    const reviewsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Задержка 1 секунда перед проявлением цвета
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, 1000);
+                reviewsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 }); // Сработает, когда 30% блока в зоне видимости
+
+    if (reviewsGrid) reviewsObserver.observe(reviewsGrid);
 });
 </script>
 </body>
