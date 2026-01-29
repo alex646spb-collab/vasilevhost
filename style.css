@@ -5,7 +5,32 @@
   --accent-color: #1a1a1a; /* Возвращаем черный для кнопок и акцентов */
   --transition: all 0.3s ease;
 }
+/* УНИВЕРСАЛЬНЫЙ КОД ДЛЯ АНИМАЦИИ */
 
+/* Находим любой блок, где есть картинки галереи */
+div[class*="gall"] img, 
+section[class*="gall"] img,
+.gallery img,
+.portfolio img {
+    transition: all 0.5s ease !important;
+    transform: scale(1) !important;
+}
+
+/* Эффект при наведении */
+div[class*="gall"] img:hover, 
+section[class*="gall"] img:hover,
+.gallery img:hover,
+.portfolio img:hover {
+    transform: scale(1.1) !important;
+    filter: brightness(1.05) !important; /* Легкое осветление */
+}
+
+/* Чтобы картинка не перекрывала соседей при росте */
+div[class*="gall"] > div, 
+.gallery > div,
+.gallery-item {
+    overflow: hidden !important;
+}
 /* Кнопки снова черные */
 .btn {
   background-color: var(--bg-dark);
@@ -158,7 +183,92 @@ h1, h2, h3 {
   text-align: center; 
   background: var(--light-gray); 
 }
+/* Делаем сетку для первого экрана */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Текст шире, фото чуть уже */
+    align-items: center;
+    gap: 40px;
+}
+.hero {
+    overflow: visible !important; /* Важно, чтобы фото не обрезалось границей шапки */
+    padding-bottom: 0; /* Убираем лишний отступ снизу */
+}
 
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Фото слева, текст справа */
+    align-items: end; /* Прижимаем фото к низу секции */
+    gap: 20px;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 10; /* Чтобы быть поверх всех фонов */
+}
+
+.hero-image img {
+    width: 200% !important;        /* Твой текущий большой масштаб */
+    max-width: none !important; 
+    
+    /* СДВИГАЕМ ЛЕВЕЕ ТУТ: */
+    /* Попробуй -35% или даже -45%, пока кнопки не станут свободными */
+    margin-left: -45% !important; 
+    
+    margin-bottom: -20px !important; 
+    position: relative;
+    z-index: 1; /* Опускаем чуть ниже текста, но выше фона */
+}
+
+.hero-text {
+    position: relative;
+    z-index: 10; /* Поднимаем текст и кнопки ВЫШЕ фото, чтобы они нажимались */
+    padding-left: 20px; /* Дополнительный зазор от левого края */
+}
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: -50px; /* На мобиле провал чуть меньше */
+        max-width: 320px;
+    }
+}
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    /* Легкая тень под фото, чтобы добавить объема */
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5)); 
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-image {
+        order: -1; /* Фото будет НАД текстом на мобильном */
+        margin-bottom: 20px;
+    }
+    
+    .hero-image img {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+}
 .pre-title { 
   display: block; 
   text-transform: uppercase; 
@@ -913,4 +1023,64 @@ html {
 }
 .contact-section { 
     text-align: center !important; 
+}
+/* ЭФФЕКТЫ ГАЛЕРЕИ */
+
+/* 1. Находим контейнер картинки */
+.gallery-item {
+    overflow: hidden; /* Чтобы фото не вылезало за границы при росте */
+    transition: box-shadow 0.4s ease; /* Плавная тень */
+}
+
+/* 2. Настройка самой картинки внутри */
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Плавность увеличения */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+/* 3. Эффект при наведении на блок */
+.gallery-item:hover img {
+    transform: scale(1.08); /* Увеличение на 8% — выглядит благородно */
+}
+
+.gallery-item:hover {
+    /* Добавляем легкую тень, чтобы фото "оторвалось" от фона */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 2; /* Чтобы тень была поверх соседей */
+}
+/* ПРИНУДИТЕЛЬНОЕ ОЖИВЛЕНИЕ ГАЛЕРЕИ */
+
+/* Находим все картинки внутри твоей галереи */
+.gallery img, 
+.gallery-item img, 
+.photo-grid img {
+    transition: transform 0.5s ease-out !important;
+    display: block !important;
+}
+
+/* Эффект при наведении */
+.gallery img:hover, 
+.gallery-item:hover img, 
+.photo-grid img:hover {
+    transform: scale(1.1) !important; /* Увеличение на 10% */
+    cursor: pointer !important;
+}
+
+/* Чтобы картинка не вылезала за края соседа */
+.gallery > div, 
+.gallery-item, 
+.photo-grid > div {
+    overflow: hidden !important;
+}
+/* Вставь это в самый конец, когда будут силы */
+.gallery-item a img {
+    transition: transform 0.4s ease !important;
+}
+
+.gallery-item a:hover img {
+    transform: scale(1.05) !important;
 }
