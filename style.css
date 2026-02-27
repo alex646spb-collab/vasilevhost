@@ -2222,3 +2222,121 @@ padding: 30px; /* Чем больше число, тем меньше будет
     max-height: 100%;
     object-fit: contain !important;
 }
+
+
+
+
+
+/* --- СТИЛИ ДЛЯ ФОНА "ВО ВСЮ ПЛИТКУ" И БЕЛОГО ТЕКСТА --- */
+
+.hero {
+    /* 1. Устанавливаем фото как фон всей секции */
+    background-image: url('action.png'); /* Убедитесь, что путь к файлу верный */
+    
+    /* 2. Растягиваем фон "во всю плитку" */
+    background-size: cover;      /* КЛЮЧЕВОЕ: фото заполняет всё пространство, слегка обрезаясь */
+    background-position: center;  /* Центрируем лицо на фото */
+    background-repeat: no-repeat; /* Не дублируем картинку */
+    background-attachment: scroll; /* Фон скроллится вместе с сайтом */
+
+    /* 3. Задаем высоту секции (например, 80% высоты экрана или фиксированную) */
+    min-height: 80vh; 
+    display: flex;
+    align-items: center; /* Центрируем текст по вертикали внутри фона */
+    
+    /* 4. Добавляем легкое затемнение ПОВЕРХ фото, чтобы белый текст читался идеально */
+    position: relative;
+}
+
+/* Создаем полупрозрачный слой поверх фото */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Черное затемнение 40% */
+    z-index: 1; /* Между фоном и текстом */
+}
+
+/* Поднимаем контент (текст) выше затемнения */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* 5. Делаем весь текст БЕЛЫМ */
+.hero-text {
+    color: #ffffff !important;
+    text-align: center; /* Центрируем текст для красивой композиции на фоне */
+    max-width: 800px;   /* Ограничиваем ширину текста, чтобы не был слишком широким */
+    margin: 0 auto;     /* Центрируем текстовый блок */
+}
+
+.hero-text h1 {
+    color: #ffffff !important;
+    font-size: clamp(40px, 8vw, 72px); /* Адаптивный размер */
+    margin-bottom: 20px;
+    /* Добавляем тень буквам для максимального контраста */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.hero-text .pre-title {
+    color: rgba(255, 255, 255, 0.8) !important; /* Чуть прозрачный белый */
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 300px;
+}
+
+.hero-text .subtitle {
+    color: #ffffff !important;
+    font-size: clamp(18px, 3vw, 24px);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 40px;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.hero-text .subtitle em {
+    color: #ffffff !important;
+    font-style: italic;
+}
+
+/* 6. Стили для кнопок в Hero (делаем их контрастными на темном фоне) */
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* Центрируем кнопки */
+}
+
+.hero .btn-outline-white {
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    background: transparent !important;
+}
+
+.hero .btn-outline-white:hover {
+    background-color: #ffffff !important; /* При наведении заливка белым */
+    color: #000000 !important;           /* Текст становится черным */
+    border-color: #ffffff !important;
+}
+
+/* Фикс для навигации, если она наезжает */
+body {
+    padding-top: 80px; /* Отступ под высоту вашей фиксированной шапки */
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 60vh; /* На мобильных секция чуть ниже */
+        padding: 40px 0;
+    }
+    .hero-actions {
+        flex-direction: column; /* Кнопки друг под другом */
+        align-items: center;
+    }
+    .hero .btn-dynamic {
+        width: 100%;
+        max-width: 280px;
+    }
+}
