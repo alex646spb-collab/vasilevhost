@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106524747', 'ym');
-
-    ym(106524747, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/106524747" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Александр Васильев — Ведущий на свадьбу и камерные события в СПб</title>
@@ -66,18 +53,14 @@
 </nav>
 
 <header class="hero">
-    <div class="container hero-grid fade-in">
-        <div class="hero-image">
-            <img src="action.png" alt="Александр Васильев">
-        </div>
-
+    <div class="container hero-content fade-in">
         <div class="hero-text">
             <span class="pre-title">Ведущий семейных событий</span>
             <h1>Александр Васильев</h1>
             <p class="subtitle">Создаю атмосферу, в которой вам и вашим близким будет <em>по-настоящему спокойно</em>.</p>
             <div class="hero-actions">
                 <a href="#contact" class="btn btn-outline-white btn-dynamic" data-hover="Да, нажми!"><span>Обсудить дату</span></a>
-                <a href="tel:+79046462993" class="btn btn-outline-white btn-dynamic" data-hover="Позвонить сейчас"><span>+7 904 646-29-93</span></a>
+                <a href="tel:Получить Чек-лист" class="btn btn-outline-white btn-dynamic" data-hover="Позвонить сейчас"><span>Получить Чек-лист</span></a>
             </div>
         </div>
     </div>
@@ -87,9 +70,25 @@
     <div class="container text-center">
         <div class="philosophy-header">
             <span class="pre-title">Философия</span>
+           
+        </div>
+        <section class="section section-light">
+  <div class="container">
+    <h2>Почему со мной спокойно</h2>
+    <ul class="trust-list">
+      <li>Я не перетягиваю внимание на себя — центр вечера всегда пара</li>
+      <li>Работаю без пошлых конкурсов и давления на гостей</li>
+      <li>Сценарий пишу под вас, а не «по шаблону»</li>
+      <li>Чётко чувствую тайминг и не затягиваю моменты</li>
+    </ul>
+  </div>
+</section>
+
+    <div class="container text-center">
+        <div class="philosophy-header">
+           
             <h2>Это про вас, если</h2>
         </div>
-        
         <div class="philosophy-content scroll-reveal">
             <ul class="list-centered">
                 <li>Вам важно уважение к семье и личным границам гостей</li>
@@ -445,7 +444,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
+const gallery = document.querySelector('.gallery-grid');
 
+gallery.addEventListener('mousemove', (e) => {
+  const { offsetWidth } = gallery;
+  const x = e.offsetX / offsetWidth - 0.5;
+  gallery.style.transform = `translateX(${x * 40}px)`;
+});
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const cards = document.querySelectorAll('.dynamic-review');
