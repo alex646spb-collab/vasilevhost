@@ -51,6 +51,94 @@
   </div>
 </header>
 
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 300px;
+      margin: 20px auto;
+    }
+
+    .append-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .append-buttons button {
+      display: inline-block;
+      cursor: pointer;
+      border: 1px solid #007aff;
+      color: #007aff;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin: 0 10px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
 <section class="section section-dark" id="philosophy">
   <div class="container text-center">
     <div class="philosophy-header">
@@ -59,7 +147,7 @@
   </div>
 
   <section class="section section-light">
-    <div class="container">
+    <div class="container text-center">
       <h2>Почему со мной спокойно</h2>
       <ul class="trust-list">
         <li>Я не перетягиваю внимание на себя — центр вечера всегда пара.</li>
@@ -85,11 +173,21 @@
   </div>
 </section>
 
+
+
+
+
+
 <section class="section section-light" id="about">
   <div class="container grid-2">
     <div class="about-image-wrapper">
       <img src="profile.jpg" alt="Александр Васильев" class="about-photo">
     </div>
+
+
+
+
+
 
     <div class="about-text">
       <span class="pre-title">Ваш ведущий</span>
@@ -133,7 +231,7 @@
       <div class="photo-item"><img src="photo5.jpg" alt="5"></div>
       <div class="photo-item"><img src="photo7.jpg" alt="7"></div>
       <div class="photo-item"><img src="photo8.jpg" alt="8"></div>
-    </div>
+</div>
   </div>
 </section>
 
@@ -152,6 +250,7 @@
           <div class="hooks-inline-container"></div>
           <div class="review-footer-info">
             <h3 class="review-title">Саша и Настасья</h3>
+
           </div>
         </div>
       </div>
@@ -180,7 +279,9 @@
             <h3 class="review-title">Никита и Мария</h3>
           </div>
         </div>
-      </div>
+</div>
+     
+
 
     </div>
   </div>
@@ -335,6 +436,85 @@
     msgDiv.textContent = 'Спасибо! Заявка сохранена. Напишите мне также в WhatsApp или Telegram для уверенности.';
     msgDiv.style.color = '#4CAF50';
     this.reset();
+  });
+
+
+// --- ЛОГИКА РАСКРЫТИЯ КАРТОЧЕК ОТЗЫВОВ ---
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Создаем темную подложку
+    const overlay = document.createElement('div');
+    overlay.className = 'review-overlay';
+    document.body.appendChild(overlay);
+
+    const reviewCards = document.querySelectorAll('.review-card');
+    
+    reviewCards.forEach(card => {
+        // 2. В каждую карточку добавляем крестик закрытия
+        const closeBtn = document.createElement('div');
+        closeBtn.className = 'review-close-btn';
+        closeBtn.innerHTML = '×';
+        card.appendChild(closeBtn);
+
+        // 3. Открытие карточки по клику
+        card.addEventListener('click', function(e) {
+            // Если кликнули на крестик - игнорируем, крестик сам закроет
+            if(e.target.classList.contains('review-close-btn')) return; 
+            
+            if(!this.classList.contains('is-expanded')) {
+                // Закрываем другие, если открыты
+                reviewCards.forEach(c => c.classList.remove('is-expanded'));
+                
+                // Открываем текущую
+                this.classList.add('is-expanded');
+                document.body.classList.add('modal-open');
+            }
+        });
+
+        // 4. Закрытие по клику на крестик
+        closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Чтобы клик не засчитался как открытие
+            card.classList.remove('is-expanded');
+            document.body.classList.remove('modal-open');
+        });
+    });
+
+    // 5. Закрытие по клику в любую темную область вокруг карточки
+    overlay.addEventListener('click', () => {
+        reviewCards.forEach(c => c.classList.remove('is-expanded'));
+        document.body.classList.remove('modal-open');
+    });
+  });
+
+// --- ВОЛНА И ОТРИСОВКА ЛИНИЙ (ФИЛОСОФИЯ) ---
+  document.addEventListener("DOMContentLoaded", function() {
+    const philosophyLists = document.querySelectorAll('#philosophy ul');
+    
+    const waveObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const listItems = entry.target.querySelectorAll('li');
+          
+          listItems.forEach((li, index) => {
+            // Базовая задержка для каждой строки (чтобы они шли лесенкой)
+            const baseDelay = index * 0.3; 
+            
+            // 1. Запускаем подсветку букв
+            li.style.animation = `bronzeWave 1.5s ease forwards ${baseDelay}s`;
+            
+            // 2. Высчитываем время для линии (начнет рисоваться под конец свечения букв)
+            // И передаем это время в CSS
+            li.style.setProperty('--line-delay', `${baseDelay + 1.0}s`); 
+            
+            // 3. Даем команду рисовать линию
+            li.classList.add('draw-line'); 
+          });
+          
+          waveObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    philosophyLists.forEach(list => waveObserver.observe(list));
   });
 </script>
 
