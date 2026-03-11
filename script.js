@@ -272,3 +272,49 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+document.querySelectorAll(".faq-question").forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const answer = btn.nextElementSibling;
+
+    document.querySelectorAll(".faq-answer").forEach(item => {
+      if(item !== answer){
+        item.style.maxHeight = null;
+      }
+    });
+
+    if(answer.style.maxHeight){
+      answer.style.maxHeight = null;
+    } else {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+
+  });
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+  const elements = document.querySelectorAll(".timeline-step, .faq-question");
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach((entry,index) => {
+
+      if(entry.isIntersecting){
+
+        setTimeout(()=>{
+          entry.target.classList.add("show");
+        }, index * 200);
+
+      }
+
+    });
+
+  },{threshold:0.3});
+
+  elements.forEach(el=>{
+    observer.observe(el);
+  });
+
+});
