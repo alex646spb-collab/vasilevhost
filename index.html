@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Александр Васильев — Ведущий на свадьбу и камерные события в СПб</title>
-
+  <meta charset="UTF-8">
+  <title>Александр Васильев — Ведущий на свадьбу СПб</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Профессиональный ведущий семейных и камерных событий. Спокойный стиль, тактичность, индивидуальный сценарий. Работаю в Санкт-Петербурге и области.">
   <meta name="keywords" content="ведущий на свадьбу, свадебный ведущий спб, ведущий на юбилей, Александр Васильев ведущий">
 
-  <meta property="og:title" content="Александр Васильев — Ведущий, с которым спокойно">
-  <meta property="og:description" content="Свадьбы и события без шума и суеты. Получи свадебный чек-лист подготовки на сайте">
-  <meta property="og:image" content="https://github.com/alex646spb-collab/vasilevhost/blob/main/photo1.jpg">
-  <meta property="og:url" content="https://github.com/alex646spb-collab/vasilevhost/">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
+  <!-- Шрифты и Swiper -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
 <body>
 
+<!-- Навигация -->
 <nav class="navbar">
   <div class="container nav-container">
     <div class="logo">АЛЕКСАНДР ВАСИЛЬЕВ</div>
@@ -33,19 +27,19 @@
   </div>
 </nav>
 
+ 
+
+<!-- Герой -->
 <header class="hero">
   <div class="container hero-content fade-in">
     <div class="hero-text">
-      <span class="pre-title">Ведущий на свадьбу СПб </span>
-      <h1>Александр Васильев</h1>
-      <p class="subtitle">Спокойный классический формат камерных свадеб и семейных событий. Программа адаптируется под характер вашей пары, без пошлых конкурсов и громких интерактивов.</em>.</p>
+      <span class="pre-title">Ведущий на свадьбу СПб</span>
+ 
+
+      <p class="subtitle">Спокойный классический формат камерных свадеб и семейных событий. Программа адаптируется под характер вашей пары, без пошлых конкурсов и громких интерактивов.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-outline-white btn-dynamic" data-hover="Да, нажми!"><span>Обсудить дату</span></a>
-      <a href="https://disk.yandex.ru/i/JQHMZUQIphKKlA" 
-         target="_blank"
-        class="btn btn-outline-white btn-dynamic" data-hover="Получить чек-лист">
-        <span>Получить чек-лист</span>
-</a>
+        <a href="https://disk.yandex.ru/i/JQHMZUQIphKKlA" target="_blank" class="btn btn-outline-white btn-dynamic" data-hover="Получить чек-лист"><span>Получить чек-лист</span></a>
       </div>
     </div>
   </div>
@@ -53,171 +47,79 @@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <title>Swiper demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-  <!-- Link Swiper's CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-
-  <!-- Demo styles -->
-  <style>
-    html,
-    body {
-      position: relative;
-      height: 100%;
-    }
-
-    body {
-      background: #000;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #444;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .swiper {
-      width: 100%;
-      height: 300px;
-      margin: 20px auto;
-    }
-
-    .append-buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .append-buttons button {
-      display: inline-block;
-      cursor: pointer;
-      border: 1px solid #007aff;
-      color: #007aff;
-      text-decoration: none;
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin: 0 10px;
-      font-size: 13px;
-    }
-  </style>
-</head>
 
 
-  </script>
-</body>
-
-</html>
-
-
-
-
-
+<!-- Секции: about, philosophy, promo, gallery, reviews -->
+<section class="section section-light" id="about">
+  <div class="container grid-2">
+    <div class="about-image-wrapper"><img src="profile.jpg" alt="Александр Васильев" class="about-photo"></div>
+    <div class="about-text">
+      <span class="pre-title">Ваш ведущий</span>
+      <h2>Александр Васильев</h2>
+      <p>Ищете ведущего на свадьбу в Санкт‑Петербурге, который создаст атмосферу доверия, тепла и лёгкого интеллигентного юмора? Моя задача — провести ваш праздник так, чтобы вы и ваши гости чувствовали себя комфортно.</p>
+      <div class="accent-text">Ведущий, который слышит и чувствует ритм вашего праздника.</div>
+      <p class="last-paragraph">Если вы ищете ведущего на свадьбу СПб, который создаёт атмосферу без пошлых конкурсов — добро пожаловать!</p>
+    </div>
+  </div>
+</section>
 
 
 
 <section class="section section-dark" id="philosophy">
   <div class="container text-center">
-    <div class="philosophy-header">
-      <span class="pre-title">Философия</span>
-    </div>
+    <span class="pre-title">Философия моих свадеб</span>
+    <h2>Каждая свадьба — уникальная история. Моя философия проста:</h2>
+    <ul class="trust-list">
+      <li>Простота и уют — атмосфера важнее шума и интерактива</li>
+      <li>Индивидуальный подход — сценарий под каждую пару</li>
+      <li>Эмоции через детали — песни, истории, маленькие ритуалы делают вечер особенным</li>
+    </ul>
   </div>
+</section>
 
-  <section class="section section-light">
-    <div class="container text-center">
-      <h2>Почему со мной спокойно</h2>
-      <ul class="trust-list">
-        <li>Я не перетягиваю внимание на себя — центр вечера всегда пара.</li>
-        <li>Работаю без пошлых конкурсов и давления на гостей.</li>
-        <li>Сценарий пишу под вас, а не «по шаблону».</li>
-        <li>Чётко чувствую тайминг и не затягиваю моменты.</li>
-      </ul>
-    </div>
-  </section>
-
+<!-- Промо и Видео (Телевизор) -->
+<section class="section" id="promo">
   <div class="container text-center">
-    <div class="philosophy-header">
-      <h2>Это про вас, если</h2>
-    </div>
-    <div class="philosophy-content scroll-reveal">
-      <ul class="list-centered">
-        <li>Вам важно уважение к семье и личным границам гостей.</li>
-        <li>Вы хотите живое общение вместо заученных шуток.</li>
-        <li>Для вас важен ритм и эстетика, а не громкий хаос.</li>
-      </ul>
-      <a href="#contact" class="btn btn-outline-white" style="margin-top: 40px;">Узнать свободные даты</a>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-<section class="section section-light" id="about">
-  <div class="container grid-2">
-    <div class="about-image-wrapper">
-      <img src="profile.jpg" alt="Александр Васильев" class="about-photo">
-    </div>
-
-
-
-
-
-
-    <div class="about-text">
-      <span class="pre-title">Ваш ведущий</span>
-      <h2>Александр Васильев</h2>
-      <p>Ищете ведущего на свадьбу в Санкт‑Петербурге, который создаст атмосферу доверия, тепла и лёгкого интеллигентного юмора? Моя задача — провести ваш праздник так, чтобы вы и ваши гости чувствовали себя комфортно, а важные моменты стали настоящими воспоминаниями.</p>
-      <div class="accent-text">
-        Ведущий, который слышит и чувствует ритм вашего праздника.
-      </div>
-      <p class="last-paragraph">Я — свадебный ведущий в Санкт‑Петербурге. Провожу ведущие и камерные свадьбы, адаптирую программу под характер вашей пары. Если вы ищете ведущего на свадьбу СПб, который создаёт атмосферу без пошлых конкурсов — добро пожаловать!</p>
-    </div>
-  </div>
-</section>
-
-<section class="section video-section-container" id="promo">
-  <div class="container">
     <span class="pre-title">Атмосфера</span>
-    <h2>Промо</h2>
-    <div class="video-grid" id="videoWrapper">
-      <div class="video-item">
-  <iframe src="https://vkvideo.ru/video_ext.php?oid=-191328008&id=456239024&hash=955f1c0bcbfcefe9&hd=4" width="1920" height="1080" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
-</div>
+    <h2>Почему выбирают меня</h2>
+    <ul class="trust-list" style="max-width: 800px; margin: 0 auto;">
+      <li>Опыт работы с разной аудиторией: семьи, друзья, коллеги</li>
+      <li>Индивидуальный сценарий, ненавязчивый юмор, камерный формат</li>
+      <li>Финал вечера — песни под гитару в кругу гостей</li>
+    </ul>
+
+    <!-- Ламповый телевизор -->
+    <div class="vintage-tv-wrapper">
+      <div class="vintage-tv">
+        <div class="tv-tube-wrapper">
+          <div class="tv-tube">
+            <iframe src="https://vkvideo.ru/video_ext.php?oid=-191328008&id=456239024&hash=955f1c0bcbfcefe9&hd=4" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+            <div class="tv-glass"></div>
+          </div>
+        </div>
+        <div class="tv-controls">
+          <div class="tv-dial"></div>
+          <div class="tv-dial" style="transform: rotate(75deg);"></div>
+          <div class="tv-speaker"></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="tv-booking-wrapper">
+  <a href="#contact" class="btn btn-outline-white tv-booking-btn">Готов бронировать</a>
+</div>
 
 <section class="section" id="gallery">
-  <div class="container">
+  <div class="container text-center">
     <span class="pre-title">Эстетика мгновений</span>
     <h2>Галерея</h2>
+    <ul class="trust-list">
+        <li>Фото с мероприятий, которые я проводил. Это поможет вам понять атмосферу камерной свадьбы, которую я создаю</li>
+
+   
+ 
 
     <div class="photo-mosaic">
       <div class="photo-item tall">
@@ -232,14 +134,29 @@
       <div class="photo-item"><img src="photo5.jpg" alt="5"></div>
       <div class="photo-item"><img src="photo7.jpg" alt="7"></div>
       <div class="photo-item"><img src="photo8.jpg" alt="8"></div>
-</div>
+    </div>
   </div>
 </section>
 
 <section class="section reviews-section-wrapper" id="reviews">
   <div class="container">
     <span class="pre-title">Отзывы</span>
-    <h2 style="margin-bottom: 40px;">Истории пар</h2>
+ 
+   <h2 style="margin-bottom: 40px;">Истории пар</h2>
+
+ <ul class="trust-list">
+
+
+<section id="reviews">
+
+  <p class="reviews-hint">Нажмите на фото, чтобы прочитать отзыв.</p>
+
+  <div class="reviews-grid">
+    <!-- карточки отзывов -->
+  </div>
+
+</section>
+
 
     <div class="reviews-grid">
       <div class="review-card dynamic-review" data-words="Нажми прочитать отзыв">
@@ -278,246 +195,188 @@
           <div class="hooks-inline-container"></div>
           <div class="review-footer-info">
             <h3 class="review-title">Никита и Мария</h3>
-          </div>
-        </div>
-</div>
-     
+      
+    </div>
+  </div>
+  </div>
+</section>
 
+<section id="process">
+  <div class="container">
+<span class="pre-title">А что дальше</span>
+    <h2 class="section-title">Как рождается ваша свадьба</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <h3>Созвон</h3>
+        <p>Знакомимся и обсуждаем формат вашего события.</p>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <h3>Личная встреча</h3>
+        <p>Глубже обсуждаем атмосферу, гостей и структуру вечера.</p>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <h3>Подписание договора</h3>
+        <p>Фиксируем дату и условия сотрудничества.</p>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <h3>Анкета</h3>
+        <p>Вы заполняете анкету для создания персонального сценария.</p>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <h3>Обсуждение программы</h3>
+        <p>Формируем структуру вечера и важные моменты.</p>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <h3>Свадьба вашей мечты</h3>
+        <p>День, который станет красивой историей вашей семьи.</p>
+      </div>
 
     </div>
+
   </div>
 </section>
 
 <section class="section section-dark" id="contact">
   <div class="container">
-    <div class="grid-2">
-      <div>
-        <span class="pre-title" style="color: rgba(255,255,255,0.6)">Бронирование</span>
-        <h2>Обсудим ваше событие?</h2>
-        <p class="cta-desc">Оставьте детали, и я свяжусь с вами в течение пары часов.</p>
-
-        <div class="contact-buttons" style="margin: 25px 0;">
-          <a href="https://wa.me/79046462993"
-             class="btn btn-outline-white btn-dynamic"
-             data-hover="Пиши в чат"
-             target="_blank">
-            <span>WhatsApp</span>
-          </a>
-          <a href="https://t.me/vasilevhost"
-             class="btn btn-outline-white btn-dynamic"
-             data-hover="Я там 24/7"
-             target="_blank">
-            <span>Telegram</span>
-          </a>
-        </div>
-
-        <div class="phone-link">
-          <a href="tel:+79046462993">+7 904 646-29-93</a>
-        </div>
-      </div>
-
-      <form class="contact-form" id="tg-form">
-        <input type="text" id="name" placeholder="Ваше имя" required>
-        <div class="form-row">
-          <input type="text" id="date" placeholder="Дата события">
-          <input type="text" id="city" placeholder="Место проведения">
-        </div>
-        <input type="tel" id="phone" placeholder="Телефон или Telegram" required>
-        <button type="submit" class="btn btn-outline-white">Отправить запрос</button>
-        <div id="form-message" style="margin-top: 10px; font-size: 14px;"></div>
-      </form>
+    <span class="pre-title">Бронирование</span>
+    <h2>Обсудим ваше событие?</h2>
+    <p>Оставьте детали, и я свяжусь с вами.</p>
+    <div class="contact-buttons">
+      <a href="https://wa.me/79046462993" target="_blank" class="btn">WhatsApp</a>
+      <a href="https://t.me/vasilevhost" target="_blank" class="btn">Telegram</a>
+      <a href="https://instagram.com/ae.vasilev" target="_blank" class="btn">Instagram</a>
+      <a href="https://vk.com/vasilev.host" target="_blank" class="btn">VK</a>
     </div>
+    <form id="tg-form">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="tel" placeholder="Телефон или Telegram" required>
+      <label class="checkbox-policy">
+        <input type="checkbox" required>
+        Я согласен на обработку персональных данных и принимаю
+        <a id="openPolicy" href="#">политику конфиденциальности</a>
+      </label>
+      <button type="submit">Отправить</button>
+      <div id="form-message"></div>
+    </form>
   </div>
 </section>
 
+
+<section id="faq">
+
+  <h2>Частые вопросы</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">Сколько длится программа?</button>
+    <div class="faq-answer">
+      <p>Стандартная программа длится 5–6 часов. Тайминг гибкий и всегда подстраивается под формат события и пожелания пары.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Вы работаете с диджеем?</button>
+    <div class="faq-answer">
+      <p>Да, я работаю в тандеме с профессиональным диджеем. Это позволяет создать цельную атмосферу вечера и комфортно управлять динамикой праздника.</p>
+    </div>
+  </div>
+
+<div class="faq-item">
+    <button class="faq-question">Вы проводите церемонии?</button>
+    <div class="faq-answer">
+      <p>Да, конечно провожу церемонии пишу сам или заказываю у авторов.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Можете провести свадьбу без конкурсов?</button>
+    <div class="faq-answer">
+      <p>Смогу — и с удовольствием. Сделаю акцент на атмосфере, живом общении, искренних моментах и значимых акцентах.</p>
+    </div>
+  </div>
+
+ <div class="faq-item">
+    <button class="faq-question">Что происходит на первой встрече?</button>
+    <div class="faq-answer">
+      <p>Познакомимся, обсудим вашу историю, желания и формат. Задам вопросы, чтобы собрать сценарий именно под вас.</p>
+    </div>
+  </div>
+
+ <div class="faq-item">
+    <button class="faq-question">Чем займёте гостей на welcome?</button>
+    <div class="faq-answer">
+      <p>Создам настроение с первых минут: музыка, лёгкое общение, живое сопровождение — возможно, с гитарой, если формат позволит.</p>
+    </div>
+  </div>
+
+ <div class="faq-item">
+    <button class="faq-question">Как организуете поздравления?</button>
+    <div class="faq-answer">
+      <p>Встрою их в ход вечера — без бесконечных тостов «по списку». Дам слово тем, кто захочет, в подходящий момент.</p>
+    </div>
+  </div>
+
+
+  <div class="faq-item">
+    <button class="faq-question">Вы проводите только свадьбы?</button>
+    <div class="faq-answer">
+      <p>Основное направление — свадьбы и семейные события, но также провожу камерные мероприятия, юбилеи и корпоративные вечера.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Как проходит подготовка к мероприятию?</button>
+    <div class="faq-answer">
+      <p>Мы созваниваемся, обсуждаем формат праздника, гостей, тайминг и детали. После этого я готовлю сценарную основу вечера.</p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- Cookie + Модалка -->
+<div id="cookie-banner">
+  Продолжая использовать сайт, вы соглашаетесь с обработкой персональных данных
+  <button id="cookie-btn">Принять</button>
+</div>
+
+<div class="policy-modal" id="policyModal">
+  <div class="policy-content">
+    <span class="close-policy" id="closePolicy">&times;</span>
+    <h2>Политика обработки персональных данных</h2>
+    <p>Настоящим пользователь сайта подтверждает согласие на обработку персональных данных в соответствии с ФЗ №152.</p>
+    <p>К персональным данным относятся имя, телефон и другая информация из формы обратной связи.</p>
+    <p>Данные используются только для связи по вопросам проведения мероприятия и не передаются третьим лицам.</p>
+  </div>
+</div>
+
+<!-- Футер -->
 <footer class="footer">
   <div class="container text-center">
+    <p>Трогательно. Ведение свадеб в СПб и Ленобласти</p>
     <p>© Александр Васильев</p>
   </div>
 </footer>
 
-<script>
-  // Плавный скролл по якорям
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (!href || href === '#') return;
-      const target = document.querySelector(href);
-      if (!target) return;
-      e.preventDefault();
-      window.scrollTo({
-        top: target.offsetTop - 80,
-        behavior: 'smooth'
-      });
-    });
-  });
-
-  // Эффект затемнения для видео
-  const videoWrapper = document.getElementById('videoWrapper');
-  const body = document.body;
-  if (videoWrapper) {
-    videoWrapper.addEventListener('mouseenter', () => body.classList.add('video-active'));
-    videoWrapper.addEventListener('mouseleave', () => body.classList.remove('video-active'));
-  }
-
-  // Проявление галереи при скролле
-  document.addEventListener("DOMContentLoaded", function() {
-    const galleryTarget = document.querySelector('.photo-mosaic');
-    if (!galleryTarget) return;
-
-    const galleryObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('is-visible');
-          }, 1000);
-          galleryObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    galleryObserver.observe(galleryTarget);
-  });
-
-  // Анимация философии при скролле
-  document.addEventListener("DOMContentLoaded", function() {
-    const target = document.querySelector('.philosophy-content');
-    if (!target) return;
-
-    const observerOptions = { threshold: 0.2 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
-
-    observer.observe(target);
-  });
-
-  // Крючки-слова для отзывов + проявление блока
-  document.addEventListener("DOMContentLoaded", function() {
-    const cards = document.querySelectorAll('.dynamic-review');
-    cards.forEach(card => {
-      const hooksData = card.getAttribute('data-words');
-      const container = card.querySelector('.hooks-inline-container');
-      if (hooksData && container) {
-        const words = hooksData.split(',');
-        words.forEach(word => {
-          const span = document.createElement('span');
-          span.className = 'hook-word';
-          span.textContent = word.trim();
-          container.appendChild(span);
-        });
-      }
-    });
-
-    const reviewsGrid = document.querySelector('.reviews-grid');
-    if (!reviewsGrid) return;
-
-    const reviewsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('is-visible');
-          }, 1000);
-          reviewsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    reviewsObserver.observe(reviewsGrid);
-  });
-
-  // Простая заглушка для формы (без отправки)
-  document.getElementById('tg-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const msgDiv = document.getElementById('form-message');
-    msgDiv.textContent = 'Спасибо! Заявка сохранена. Напишите мне также в WhatsApp или Telegram для уверенности.';
-    msgDiv.style.color = '#4CAF50';
-    this.reset();
-  });
+<div class="hero-text">
+  <span class="pre-title">Ведущий на свадьбу СПб</span>
 
 
-// --- ЛОГИКА РАСКРЫТИЯ КАРТОЧЕК ОТЗЫВОВ ---
-  document.addEventListener("DOMContentLoaded", function() {
-    // 1. Создаем темную подложку
-    const overlay = document.createElement('div');
-    overlay.className = 'review-overlay';
-    document.body.appendChild(overlay);
+<!-- Скрипты -->
+<script src="script.js"></script>
 
-    const reviewCards = document.querySelectorAll('.review-card');
-    
-    reviewCards.forEach(card => {
-        // 2. В каждую карточку добавляем крестик закрытия
-        const closeBtn = document.createElement('div');
-        closeBtn.className = 'review-close-btn';
-        closeBtn.innerHTML = '×';
-        card.appendChild(closeBtn);
-
-        // 3. Открытие карточки по клику
-        card.addEventListener('click', function(e) {
-            // Если кликнули на крестик - игнорируем, крестик сам закроет
-            if(e.target.classList.contains('review-close-btn')) return; 
-            
-            if(!this.classList.contains('is-expanded')) {
-                // Закрываем другие, если открыты
-                reviewCards.forEach(c => c.classList.remove('is-expanded'));
-                
-                // Открываем текущую
-                this.classList.add('is-expanded');
-                document.body.classList.add('modal-open');
-            }
-        });
-
-        // 4. Закрытие по клику на крестик
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Чтобы клик не засчитался как открытие
-            card.classList.remove('is-expanded');
-            document.body.classList.remove('modal-open');
-        });
-    });
-
-    // 5. Закрытие по клику в любую темную область вокруг карточки
-    overlay.addEventListener('click', () => {
-        reviewCards.forEach(c => c.classList.remove('is-expanded'));
-        document.body.classList.remove('modal-open');
-    });
-  });
-
-// --- ВОЛНА И ОТРИСОВКА ЛИНИЙ (ФИЛОСОФИЯ) ---
-  document.addEventListener("DOMContentLoaded", function() {
-    const philosophyLists = document.querySelectorAll('#philosophy ul');
-    
-    const waveObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const listItems = entry.target.querySelectorAll('li');
-          
-          listItems.forEach((li, index) => {
-            // Базовая задержка для каждой строки (чтобы они шли лесенкой)
-            const baseDelay = index * 0.3; 
-            
-            // 1. Запускаем подсветку букв
-            li.style.animation = `bronzeWave 1.5s ease forwards ${baseDelay}s`;
-            
-            // 2. Высчитываем время для линии (начнет рисоваться под конец свечения букв)
-            // И передаем это время в CSS
-            li.style.setProperty('--line-delay', `${baseDelay + 1.0}s`); 
-            
-            // 3. Даем команду рисовать линию
-            li.classList.add('draw-line'); 
-          });
-          
-          waveObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    philosophyLists.forEach(list => waveObserver.observe(list));
-  });
-</script>
 
 </body>
 </html>
