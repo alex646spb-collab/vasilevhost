@@ -1884,13 +1884,3 @@ document.querySelectorAll('.booking-btn').forEach(btn => {
   cursor: pointer;
   transition: var(--transition);
 }
-.timeline-step,
-.faq-question {
-  opacity: 1 !important;
-  transform: none !important;
-}
-.faq-answer{
-max-height:0;
-overflow:hidden;
-transition:max-height 0.5s ease;
-}
