@@ -1884,3 +1884,8 @@ document.querySelectorAll('.booking-btn').forEach(btn => {
   cursor: pointer;
   transition: var(--transition);
 }
+.timeline-step,
+.faq-question {
+  opacity: 1 !important;
+  transform: none !important;
+}
