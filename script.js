@@ -248,4 +248,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+// Анимация появления элементов при скролле
+document.addEventListener("DOMContentLoaded", () => {
 
+  const animatedElements = document.querySelectorAll(
+    ".timeline-step, .faq-question"
+  );
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry,index)=>{
+      if(entry.isIntersecting){
+
+        setTimeout(()=>{
+          entry.target.classList.add("show");
+        }, index * 200);
+
+      }
+    });
+  },{threshold:0.3});
+
+  animatedElements.forEach(el=>{
+    observer.observe(el);
+  });
+
+});
