@@ -1073,6 +1073,7 @@ body.modal-open .review-overlay {
     height: 2px;
     transition: all 0.3s ease;
 }
+
 /* ==========================================================================
    СДВИГ ТЕКСТА ВНИЗ НА ГЛАВНОМ ЭКРАНЕ (ЧТОБЫ НЕ ПЕРЕКРЫВАТЬ ЛИЦО)
    ========================================================================== */
@@ -1094,5 +1095,792 @@ body.modal-open .review-overlay {
 .hero-text .pre-title {
     margin-top: 0 !important;      /* Убиваем все старые верхние отступы */
     margin-bottom: 0px !important;
-       }
+    }
+}
+const banner = document.getElementById("cookie-banner");
+const btn = document.getElementById("cookie-btn");
 
+if(!localStorage.getItem("cookieAccepted")){
+  banner.style.display = "block";
+}
+
+btn.onclick = function(){
+  localStorage.setItem("cookieAccepted", "yes");
+  banner.style.display = "none";
+}
+
+.checkbox-policy {
+  display: block;
+  font-size: 14px;
+  margin: 15px 0;
+  color: rgba(255,255,255,0.8);
+}
+
+.checkbox-policy a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
+
+.policy-modal{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+}
+
+.policy-content{
+  background:#111;
+  color:#fff;
+  max-width:600px;
+  margin:10% auto;
+  padding:40px;
+  border-radius:10px;
+  position:relative;
+}
+
+.close-policy{
+  position:absolute;
+  right:20px;
+  top:15px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 15px 20px;
+  text-align: center; /* текст по центру */
+  font-size: 14px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column; /* текст сверху, кнопка снизу */
+  align-items: center;
+  gap: 10px; /* расстояние между текстом и кнопкой */
+}
+
+#cookie-banner a {
+  color: #ffd700; /* цвет ссылки */
+  text-decoration: underline;
+}
+
+#cookie-banner button {
+  padding: 6px 14px;
+  background-color: #ffd700;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* опускает весь контент вниз блока */
+  height: 100%; /* заполняет весь блок hero */
+  padding-bottom: 60px; /* дополнительное пространство от нижнего края */
+}
+
+
+/* Базовый стиль текста */
+.hero-text h1 {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(6px);
+}
+
+/* Контейнер для анимации каждой буквы */
+.hero-text h1 span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-50px); /* старт слева, можно translateX(50px) для справа */
+  filter: blur(6px);
+  animation: flyIn 1s forwards;
+}
+
+/* Анимация появления букв */
+@keyframes flyIn {
+  0% {
+    opacity: 0;
+    transform: translateX(var(--start, -50px));
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+/* Центрирование блока отзывов и карточек */
+#reviews .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрирует весь контент контейнера */
+  text-align: center;  /* Для заголовков и подписи */
+}
+
+/* Сетка карточек отзывов */
+#reviews .reviews-grid {
+  display: flex;
+  flex-wrap: wrap;       /* Перенос карточек на новую строку при узком экране */
+  justify-content: center; /* Выравнивание карточек по центру */
+  gap: 30px;             /* Отступ между карточками */
+  margin: 20px 0;        /* Отступ сверху/снизу блока карточек */
+  width: 100%;
+}
+
+/* Карточки отзывов */
+#reviews .review-card {
+  width: 300px;           /* Можно регулировать под дизайн */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Контейнер с отзывами */
+#reviews .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Центрируем заголовки */
+  text-align: center;
+}
+
+/* Сетка карточек отзывов */
+#reviews .reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Авто-адаптивные колонки */
+  gap: 30px;
+  width: 100%;
+  max-width: 960px; /* Можно подогнать под дизайн */
+  margin-top: 20px;
+}
+
+/* Карточки отзывов */
+#reviews .review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #fff;       /* Цвет фона, если нужно */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+#process {
+  padding: 100px 20px;
+  background: #fafafa;
+}
+
+.process-line {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.process-step {
+  text-align: center;
+  padding: 25px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+.step-number {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #bfa16b;
+}
+
+.process-step h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.process-step p {
+  font-size: 14px;
+  color: #666;
+}
+
+
+#process{
+  padding:120px 20px;
+  background:#0f0f0f;
+  color:white;
+  text-align:center;
+}
+
+.timeline{
+  position:relative;
+  max-width:700px;
+  margin:80px auto 0;
+}
+
+
+
+.timeline-step{
+  position:relative;
+  margin-bottom:70px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .8s ease;
+}
+
+.timeline-step.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.timeline-dot{
+  width:14px;
+  height:14px;
+  background:#c8a96a;
+  border-radius:50%;
+  margin:0 auto 18px;
+  position:relative;
+}
+
+.timeline-step h3{
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.timeline-step p{
+  color:#bfbfbf;
+  font-size:15px;
+  max-width:420px;
+  margin:0 auto;
+}
+
+
+.timeline-step:last-child h3{
+color:#c8a96a;
+}
+
+.timeline{
+  max-width:700px;
+  margin:80px auto 0;
+}
+
+.timeline-step{
+  text-align:center;
+  margin-bottom:60px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .7s ease;
+}
+
+.timeline-step.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.timeline-step h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.timeline-step p{
+  color:#bfbfbf;
+  font-size:15px;
+  max-width:420px;
+  margin:0 auto 15px;
+}
+
+/* бронзовая нить */
+.timeline-step::after{
+  content:"";
+  display:block;
+  width:70px;
+  height:2px;
+  margin:18px auto 0;
+  background:#c8a96a;
+  position:relative;
+  overflow:hidden;
+}
+
+/* блеск как в философии */
+.timeline-step::after::before{
+  content:"";
+  position:absolute;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.9),
+    transparent
+  );
+  animation:shine 2s infinite;
+}
+
+@keyframes shine{
+  0%{left:-100%}
+  100%{left:120%}
+}
+
+/* начальное состояние */
+.timeline-step{
+  text-align:center;
+  margin-bottom:70px;
+  opacity:0;
+  transform:translateY(50px) scale(.97);
+  filter:blur(6px);
+  transition:all .9s cubic-bezier(.22,.61,.36,1);
+}
+
+/* когда элемент появился */
+.timeline-step.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
+
+/* бронзовая нить как в философии */
+.timeline-step::after{
+  content:"";
+  display:block;
+  width:70px;
+  height:2px;
+  margin:20px auto 0;
+  background:#c8a96a;
+  position:relative;
+  overflow:hidden;
+}
+
+.timeline-step::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-1px;
+  width:70px;
+  height:2px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.9),
+    transparent
+  );
+  animation:shine 3s forwards;
+}
+
+@keyframes shine{
+  0%{transform:translateX(-120%)}
+  100%{transform:translateX(120%)}
+}
+
+
+.timeline-step::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.9),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: shine 1.5s forwards;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0; /* исчезает */
+  }
+}
+
+
+
+
+.timeline-step {
+  position: relative;
+  overflow: hidden; /* чтобы палочка исчезала за границей */
+}
+
+.timeline-step::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -100%; /* старт за левым краем блока */
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.9),
+    transparent
+  );
+  transform: translateY(-50%);
+  animation: shine 1.5s forwards;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 1;
+  }
+  100% {
+    left: 100%; /* выходит за правый край */
+    opacity: 0;  /* исчезает */
+  }
+}
+
+
+.hero-title {
+  display: inline-block;
+  font-size: 3rem;
+  color: #fff;
+  filter: blur(4px); /* начальный blur */
+  overflow: hidden;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(50px); /* прилет с правого края */
+}
+
+/* Анимация прилёта */
+@keyframes flyIn {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+ 8. ВИНТАЖНЫЙ ТЕЛЕВИЗОР
+   ========================================================================== */
+.vintage-tv-wrapper {
+    display: flex; justify-content: center; margin-top: 120px;
+    width: 100%; padding: 0 15px; 
+}
+
+.vintage-tv-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vintage-tv {
+    position: relative; width: 100%; max-width: 850px; 
+    background: linear-gradient(135deg, #4a2e15, #2d1b0a); 
+    padding: 20px; border-radius: 20px; display: flex; align-items: stretch; gap: 20px;
+    border: 3px solid #1a100a;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,0,0,0.9), 0 0 70px rgba(197, 160, 89, 0.12);
+}
+.tv-tube-wrapper {
+    flex: 1; min-width: 0; background: #0a0a0a; padding: 15px;
+    border-radius: 16px; box-shadow: inset 0 0 20px #000; position: relative;
+}
+.tv-tube {
+    position: relative; width: 100%; aspect-ratio: 16 / 9; 
+    background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 0 15px #000 inset;
+}
+.tv-tube iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 1;
+}
+.tv-glass {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2; pointer-events: none; 
+    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%), radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.8) 100%);
+    background-size: 100% 4px, 100% 100%; box-shadow: inset 0 0 30px rgba(0,0,0,0.9);
+}
+.tv-glass::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+}
+.tv-controls { width: 60px; display: flex; flex-direction: column; align-items: center; gap: 20px; padding-top: 10px; }
+.tv-dial {
+    width: 45px; height: 45px; background: radial-gradient(circle, #d4af37, #8a6327); 
+    border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.2); position: relative;
+}
+.tv-dial::after {
+    content: ''; position: absolute; top: 5px; left: 50%;
+    width: 4px; height: 16px; background: #1a0f06; transform: translateX(-50%); border-radius: 2px;
+}
+.tv-speaker {
+    flex: 1; width: 40px; background: repeating-linear-gradient(0deg, #120a04, #120a04 4px, transparent 4px, transparent 8px);
+    border-radius: 4px; margin-top: 10px; opacity: 0.9;
+}
+
+
+
+#faq {
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
+
+#faq h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 18px 0;
+  font-size: 18px;
+  cursor: pointer;
+  color: #e8eaed;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+  margin: 0 0 20px;
+  color: #b0b3b8;
+}
+
+
+
+/* ===== FAQ ===== */
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 20px;
+  cursor: pointer;
+  color: #c5a059;
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* линия под вопросом */
+.faq-question::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
+  transition: width 1.2s ease;
+}
+
+/* появление */
+.faq-question.show {
+  animation: bronzeWave 1.5s ease forwards;
+}
+
+/* прорисовка линии */
+.faq-question.show::after {
+  width: 100%;
+}
+
+
+/* ===== FAQ ===== */
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 20px;
+  cursor: pointer;
+  color: #c5a059;
+  position: relative;
+  padding-bottom: 12px;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+/* линия под текстом */
+.faq-question::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
+  transition: width 1.2s ease;
+}
+
+/* появление */
+.faq-question.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* прорисовка линии */
+.faq-question.show::after {
+  width: 100%;
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  const faqQuestions = document.querySelectorAll(".faq-question");
+
+  // Появление как в философии
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry,index)=>{
+      if(entry.isIntersecting){
+        setTimeout(()=>{
+          entry.target.classList.add("show");
+        }, index*300);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  faqQuestions.forEach(q => observer.observe(q));
+
+  // Клик по вопросу — открытие ответа
+  faqQuestions.forEach(q => {
+    q.addEventListener("click", () => {
+      const answer = q.nextElementSibling;
+
+      // переключаем класс open у ответа
+      answer.classList.toggle("open");
+
+      // переключаем active у вопроса (+/-)
+      q.classList.toggle("active");
+    });
+  });
+
+});
+
+
+document.querySelectorAll('.booking-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        window.scrollTo({
+            top: target.offsetTop - 80, // учёт шапки
+            behavior: 'smooth'
+        });
+    });
+});
+
+.tv-booking-wrapper {
+  display: flex;
+  justify-content: center; /* центр по горизонтали */
+  margin-top: 10px;        /* отступ сверху от видео */
+  width: 100%;
+}
+
+.tv-booking-btn {
+  padding: 12px 30px;
+  background-color: #d4af37; /* бронзовый цвет */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+}
+
+
+.tv-booking-btn {
+  padding: 12px 30px;
+  background-color: #000;        /* черная заливка */
+  color: #fff;                   /* белый текст */
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #fff;        /* белая рамка */
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;               /* курсор при наведении */
+  transition: background 0.3s, color 0.3s;
+}
+
+.tv-booking-btn:hover {
+  background-color: #222;        /* легкий эффект при наведении */
+  color: #fff;
+}
+
+
+.tv-booking-wrapper {
+  display: flex;
+  justify-content: center;      /* горизонтальный центр */
+  margin-top: 30px;             /* отступ сверху */
+}
+
+.tv-booking-btn {
+  padding: 12px 30px;
+  background-color: #000;       /* черная заливка */
+  color: #fff;                  /* белый текст */
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #fff;       /* белая рамка */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tv-booking-btn:hover {
+  background-color: #222;
+}
+
+
+/* Обёртка кнопки под видео */
+.tv-booking-wrapper {
+  display: flex;
+  justify-content: center; /* по центру по горизонтали */
+  margin-top: 20px;       /* регулирует расстояние от видео */
+}
+
+/* Кнопка использует существующий стиль .btn и .btn-outline-white */
+.tv-booking-btn {
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
