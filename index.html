@@ -271,27 +271,21 @@
       <a href="https://instagram.com/ae.vasilev" target="_blank" class="btn">Instagram</a>
       <a href="https://vk.com/vasilevhost" target="_blank" class="btn">VK</a>
     </div>
-<form action="https://forminit.com/f/sffdmgvw4oo" method="POST">
-  
+<form id="tg-form" class="contact-form">
   <input type="text" name="name" placeholder="Ваше имя" required>
-  <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
+  <input type="tel" name="phone" placeholder="Ваш телефон" required>
   <input type="number" name="guests" placeholder="Количество гостей">
-  <input type="text" name="location" placeholder="Место проведения (площадка)">
+  <input type="text" name="location" placeholder="Место проведения">
   
-  <select name="source" style="padding: 15px; background: #222529; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 4px; width: 100%; margin-bottom: 15px;">
+  <select name="source">
     <option value="" disabled selected>Откуда узнали обо мне?</option>
     <option value="Instagram">Instagram</option>
     <option value="VK">ВКонтакте</option>
-    <option value="Рекомендация">Рекомендация друзей</option>
-    <option value="Другое">Другое</option>
+    <option value="Рекомендация">Рекомендация</option>
   </select>
 
-  <label class="checkbox-policy" style="display: block; margin-bottom: 15px; color: var(--text-muted);">
-    <input type="checkbox" required>
-    Я согласен на обработку персональных данных и принимаю <a id="openPolicy" href="#">политику</a>
-  </label>
-  
-  <button type="submit">Отправить</button>
+  <button type="submit">Отправить заявку</button>
+  <div id="form-message"></div>
 </form>
   </div>
 </section>
