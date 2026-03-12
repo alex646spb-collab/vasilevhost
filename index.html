@@ -267,23 +267,41 @@
     <p>Оставьте детали, и я свяжусь с вами.</p>
     <div class="contact-buttons">
       <a href="https://wa.me/79046462993" target="_blank" class="btn">WhatsApp</a>
-      <a href="https://t.me/vasilevhost" target="_blank" class="btn">Telegram</a>
+      <a href="https://t.me/ae_vasilev" target="_blank" class="btn">Telegram</a>
       <a href="https://instagram.com/ae.vasilev" target="_blank" class="btn">Instagram</a>
-      <a href="https://vk.com/vasilev.host" target="_blank" class="btn">VK</a>
+      <a href="https://vk.com/vasilevhost" target="_blank" class="btn">VK</a>
     </div>
-<form id="tg-form">
-      <!-- Добавлены name="name" и name="phone" -->
-      <input type="text" name="name" placeholder="Ваше имя" required>
-      <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
-      
-      <label class="checkbox-policy">
-        <input type="checkbox" required>
-        Я согласен на обработку персональных данных и принимаю
-        <a id="openPolicy" href="#">политику конфиденциальности</a>
-      </label>
-      <button type="submit">Отправить</button>
-      <div id="form-message"></div>
-    </form>
+<form action="https://formspree.io/f/xeerkldr" method="POST" id="tg-form">
+  
+  <!-- Имя -->
+  <input type="text" name="name" placeholder="Ваше имя" required>
+  
+  <!-- Телефон -->
+  <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
+  
+  <!-- Количество гостей -->
+  <input type="number" name="guests" placeholder="Количество гостей">
+  
+  <!-- Место проведения -->
+  <input type="text" name="location" placeholder="Место проведения (площадка)">
+  
+  <!-- Откуда узнали -->
+  <select name="source" style="padding: 15px; background: #222529; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 4px; width: 100%; margin-bottom: 15px;">
+    <option value="" disabled selected>Откуда узнали обо мне?</option>
+    <option value="Instagram">Instagram</option>
+    <option value="VK">ВКонтакте</option>
+    <option value="Рекомендация">Рекомендация друзей</option>
+    <option value="Другое">Другое</option>
+  </select>
+
+  <!-- Политика -->
+  <label class="checkbox-policy" style="display: block; margin-bottom: 15px;">
+    <input type="checkbox" required>
+    Я согласен на обработку данных и принимаю <a id="openPolicy" href="#">политику</a>
+  </label>
+  
+  <button type="submit">Отправить</button>
+</form>
   </div>
 </section>
 
