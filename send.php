@@ -46,4 +46,3 @@ if (!empty($name) && !empty($phone)) {
 } else {
     echo json_encode(['success' => false, 'error' => 'Пустые данные']);
 }
-?>
