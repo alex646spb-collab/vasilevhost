@@ -271,21 +271,13 @@
       <a href="https://instagram.com/ae.vasilev" target="_blank" class="btn">Instagram</a>
       <a href="https://vk.com/vasilevhost" target="_blank" class="btn">VK</a>
     </div>
-<form action="https://formspree.io/f/xeerkldr" method="POST" id="tg-form">
+<form action="https://forminit.com/f/sffdmgvw4oo" method="POST" id="tg-form">
   
-  <!-- Имя -->
   <input type="text" name="name" placeholder="Ваше имя" required>
-  
-  <!-- Телефон -->
   <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
-  
-  <!-- Количество гостей -->
   <input type="number" name="guests" placeholder="Количество гостей">
-  
-  <!-- Место проведения -->
   <input type="text" name="location" placeholder="Место проведения (площадка)">
   
-  <!-- Откуда узнали -->
   <select name="source" style="padding: 15px; background: #222529; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 4px; width: 100%; margin-bottom: 15px;">
     <option value="" disabled selected>Откуда узнали обо мне?</option>
     <option value="Instagram">Instagram</option>
@@ -294,13 +286,13 @@
     <option value="Другое">Другое</option>
   </select>
 
-  <!-- Политика -->
-  <label class="checkbox-policy" style="display: block; margin-bottom: 15px;">
+  <label class="checkbox-policy" style="display: block; margin-bottom: 15px; color: var(--text-muted);">
     <input type="checkbox" required>
-    Я согласен на обработку данных и принимаю <a id="openPolicy" href="#">политику</a>
+    Я согласен на обработку персональных данных и принимаю <a id="openPolicy" href="#">политику</a>
   </label>
   
   <button type="submit">Отправить</button>
+  <div id="form-message"></div>
 </form>
   </div>
 </section>
