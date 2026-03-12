@@ -39,7 +39,7 @@
       <p class="subtitle">Спокойный классический формат камерных свадеб и семейных событий. Программа адаптируется под характер вашей пары, без пошлых конкурсов и громких интерактивов.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-outline-white btn-dynamic" data-hover="Да, нажми!"><span>Обсудить дату</span></a>
-        <a href="https://disk.yandex.ru/i/JQHMZUQIphKKlA" target="_blank" class="btn btn-outline-white btn-dynamic" data-hover="Получить чек-лист"><span>Получить чек-лист</span></a>
+       
       </div>
     </div>
   </div>
@@ -260,9 +260,11 @@
       <a href="https://instagram.com/ae.vasilev" target="_blank" class="btn">Instagram</a>
       <a href="https://vk.com/vasilev.host" target="_blank" class="btn">VK</a>
     </div>
-    <form id="tg-form">
-      <input type="text" placeholder="Ваше имя" required>
-      <input type="tel" placeholder="Телефон или Telegram" required>
+<form id="tg-form">
+      <!-- Добавлены name="name" и name="phone" -->
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
+      
       <label class="checkbox-policy">
         <input type="checkbox" required>
         Я согласен на обработку персональных данных и принимаю
@@ -274,6 +276,14 @@
   </div>
 </section>
 
+<!-- Секция: Чек-лист (Подарок) -->
+<section class="section text-center" id="checklist" style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+  <div class="container">
+    <span class="pre-title">Подарок для вас</span>
+    <h2 style="margin-bottom: 30px;">С чего начать подготовку к свадьбе?</h2>
+    <a href="https://disk.yandex.ru/i/JQHMZUQIphKKlA" target="_blank" class="btn btn-dynamic" data-hover="Скачать PDF бесплатно"><span>Получить чек-лист</span></a>
+  </div>
+</section>
 
 <section id="faq">
 
@@ -347,12 +357,12 @@
 
 
 <!-- Cookie + Модалка -->
-<div id="cookie-banner">
+<div id="cookie-banner" style="display: none;">
   Продолжая использовать сайт, вы соглашаетесь с обработкой персональных данных
   <button id="cookie-btn">Принять</button>
 </div>
 
-<div class="policy-modal" id="policyModal">
+<div class="policy-modal" id="policyModal" style="display: none;">
   <div class="policy-content">
     <span class="close-policy" id="closePolicy">&times;</span>
     <h2>Политика обработки персональных данных</h2>
