@@ -116,3 +116,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    // Вставьте сюда ваши данные:
+    const BOT_TOKEN = "8363528727:AAHehZCVe4GQKQFYP68K8rC5NfnyCK-H4Y8";
+    const CHAT_ID = "1389330369";
+
+    const form = document.getElementById('tg-form');
+    const msgDiv = document.getElementById('form-message');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        msgDiv.textContent = 'Отправка...';
+        
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        const text = `📩 НОВАЯ ЗАЯВКА\n\n👤 Имя: ${data.name}\n📞 Телефон: ${data.phone}\n👥 Гостей: ${data.guests || '-'}\n📍 Место: ${data.location || '-'}\n🔎 Откуда: ${data.source || '-'}`;
+
+        try {
+            const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: text })
+            });
+
+            if (response.ok) {
+                msgDiv.textContent = 'Спасибо! Заявка отправлена.';
+                msgDiv.style.color = '#C5A059';
+                form.reset();
+            } else {
+                throw new Error('Ошибка сети');
+            }
+        } catch (err) {
+            msgDiv.textContent = 'Ошибка отправки. Попробуйте снова.';
+            msgDiv.style.color = 'red';
+        }
+    });
+});
