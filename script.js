@@ -107,43 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// Обработка формы без перезагрузки
-const form = document.getElementById('tg-form');
-  if (form) {
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault(); // Останавливаем перезагрузку страницы
-      
-      const msgDiv = document.getElementById('form-message');
-      msgDiv.textContent = 'Отправка заявки...';
-      msgDiv.style.color = '#e8eaed';
-      msgDiv.style.marginTop = '15px';
 
-      // Собираем данные из полей
-      const formData = new FormData(form);
-
-      try {
-        // Отправляем данные в наш защищенный PHP-файл
-        const response = await fetch('send.php', {
-          method: 'POST',
-          body: formData
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-          msgDiv.textContent = 'Спасибо! Заявка успешно отправлена. Скоро свяжусь с вами!';
-          msgDiv.style.color = '#C5A059'; // Бронзовый цвет
-          form.reset(); // Очищаем форму
-        } else {
-          throw new Error('Ошибка при отправке');
-        }
-      } catch (error) {
-        // Если сервер недоступен
-        msgDiv.textContent = 'Произошла ошибка. Пожалуйста, напишите мне в WhatsApp или Telegram напрямую.';
-        msgDiv.style.color = 'red';
-      }
-    });
-  }
 
 // Плавное появление галереи
 document.addEventListener("DOMContentLoaded", function() {
