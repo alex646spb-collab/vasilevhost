@@ -2108,6 +2108,22 @@ img {
     .contact-buttons { flex-direction: column; width: 100%; }
     .nav-menu { display: none; }
 }
+
+
+/* Стилизация контейнера Google Формы */
+.google-form-wrapper {
+    background: #222529; /* Цвет ваших карточек отзывов */
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+.google-form-wrapper iframe {
+    border-radius: 12px;
+    filter: invert(1) hue-rotate(180deg) brightness(1.2); /* ХИТРОСТЬ: делаем белую форму тёмной */
+}
+
+
 .asphalt-form {
     max-width: 500px;
     margin: 40px auto;
@@ -2173,4 +2189,120 @@ img {
 .channel-btn.active, .channel-btn:hover {
     background: var(--bronze);
     color: #000;
+}
+
+/* Эффект блика на фото при наведении */
+.js-tilt-glare {
+    border-radius: 2px;
+}
+.about-photo {
+    transition: transform 0.1s ease-out; /* Плавность следования за мышкой */
+}
+
+
+.music-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #181a1c; /* Тот же цвет, что и фон сайта */
+    border: 2px solid var(--bronze);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.3); /* Бронзовое свечение */
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(197, 160, 89, 0.6);
+}
+
+.vinyl-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 6px solid var(--bronze); /* Делаем кольцо толще */
+    background: radial-gradient(circle, #fff 15%, transparent 20%); /* Белая точка в центре */
+    display: block;
+}
+
+/* Вращение */
+.music-btn.playing {
+    border-color: #fff; /* При игре рамка белеет */
+}
+.music-btn.playing .vinyl-icon {
+    animation: rotateVinyl 3s linear infinite;
+    border-color: #fff;
+}
+
+@keyframes rotateVinyl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+.music-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #181a1c;
+    border: 2px solid var(--bronze);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    overflow: visible; /* Чтобы надпись была видна при выезде */
+}
+
+/* Стиль самой надписи */
+.music-label {
+    position: absolute;
+    right: 70px; /* Справа от кнопки */
+    white-space: nowrap;
+    background: var(--bronze);
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none; /* Чтобы мышь проходила сквозь надпись */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(10px);
+}
+
+/* Показываем надпись при наведении на кнопку */
+.music-btn:hover .music-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Стиль надписи "Включить музыку" */
+.music-label {
+    position: absolute;
+    right: 70px;
+    white-space: nowrap;
+    background: #181a1c; /* Цвет асфальта, чтобы она не "кричала" */
+    color: #a8a8a8;      /* Тот самый "мягкий" серый, который не режет глаз */
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(197, 160, 89, 0.3); /* Тонкая бронзовая рамка */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(10px);
 }
