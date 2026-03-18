@@ -2108,3 +2108,69 @@ img {
     .contact-buttons { flex-direction: column; width: 100%; }
     .nav-menu { display: none; }
 }
+.asphalt-form {
+    max-width: 500px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.asphalt-form input, .asphalt-form select {
+    padding: 15px;
+    background: #222529;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    border-radius: 8px;
+    width: 100%;
+}
+.asphalt-form button {
+    padding: 15px;
+    background: #C5A059;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+}
+
+
+.channel-selector {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+.channel-btn {
+    padding: 8px 16px;
+    background: #222529;
+    border: 1px solid var(--bronze);
+    color: var(--bronze);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    transition: var(--transition);
+}
+.channel-btn.active, .channel-btn:hover {
+    background: var(--bronze);
+    color: #000;
+}
+
+.channel-selector {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+.channel-btn {
+    padding: 8px 16px;
+    background: #222529;
+    border: 1px solid var(--bronze);
+    color: var(--bronze);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    transition: var(--transition);
+}
+.channel-btn.active, .channel-btn:hover {
+    background: var(--bronze);
+    color: #000;
+}
