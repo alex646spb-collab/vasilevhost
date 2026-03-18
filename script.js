@@ -317,17 +317,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Музыкальный проигрыватель
-const music = document.getElementById('bg-music');
+// Музыкальный проигрыватель - предельно простой код
+const music = new Audio('music.mp3'); // Создаем объект звука напрямую
+music.loop = true;
 const btn = document.getElementById('music-btn');
 
 btn.addEventListener('click', () => {
     if (music.paused) {
         music.play().then(() => {
             btn.classList.add('playing');
-        }).catch(error => {
-            console.error("Ошибка воспроизведения:", error);
-            alert("Не удалось включить музыку. Проверьте, есть ли файл music.mp3 в папке сайта.");
+        }).catch(err => {
+            console.error("Браузер заблокировал автоплей:", err);
         });
     } else {
         music.pause();
