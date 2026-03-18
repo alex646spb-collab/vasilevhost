@@ -36,7 +36,7 @@
       <span class="pre-title">Ведущий на свадьбу СПб</span>
  
 
-      <p class="subtitle">Спокойный классический формат свадеб и семейных событий. Программа адаптируется под характер вашей пары, без пошлых конкурсов и громких интерактивов.</p>
+      <p class="subtitle">Спокойный классический формат камерных свадеб и семейных событий. Программа адаптируется под характер вашей пары, без пошлых конкурсов и громких интерактивов.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-outline-white btn-dynamic" data-hover="Да, нажми!"><span>Обсудить дату</span></a>
        
@@ -52,7 +52,8 @@
 <!-- Секции: about, philosophy, promo, gallery, reviews -->
 <section class="section section-light" id="about">
   <div class="container grid-2">
-    <div class="about-image-wrapper"><img src="profile.jpg" alt="Александр Васильев" class="about-photo"></div>
+    <div class="about-image-wrapper"><img src="profile.jpg" alt="Александр Васильев" class="about-photo" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+</div>
     <div class="about-text">
       <span class="pre-title">Ваш ведущий</span>
       <h2>Александр Васильев</h2>
@@ -249,6 +250,7 @@
   </div>
 </section>
 
+
 <section class="section section-dark" id="contact">
   <div class="container text-center">
     <span class="pre-title">Бронирование</span>
@@ -262,7 +264,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- Секция: Чек-лист (Подарок) -->
 <section class="section text-center" id="checklist" style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
@@ -374,7 +375,18 @@
 
 <!-- Скрипты -->
 <script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
+<!-- Музыкальный проигрыватель -->
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
+<button id="music-btn" class="music-btn">
+  <span class="vinyl-icon"></span>
+  <!-- Эта надпись появится при наведении -->
+  <span class="music-label">Включить музыку</span>
+</button>
 </body>
 </html>
