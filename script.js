@@ -109,15 +109,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Обработка формы без перезагрузки
 const form = document.getElementById('tg-form');
-if (form) {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const msgDiv = document.getElementById('form-message');
-    msgDiv.textContent = 'Спасибо! Заявка сохранена. Напишите мне также в WhatsApp или Telegram для уверенности.';
-    msgDiv.style.color = '#4CAF50';
-    form.reset();
-  });
-}
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault(); // Останавливаем перезагрузку страницы
+      
+      const msgDiv = document.getElementById('form-message');
+      msgDiv.textContent = 'Отправка заявки...';
+      msgDiv.style.color = '#e8eaed';
+      msgDiv.style.marginTop = '15px';
+
+      // Собираем данные из полей
+      const formData = new FormData(form);
+
+      try {
+        // Отправляем данные в наш защищенный PHP-файл
+        const response = await fetch('send.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          msgDiv.textContent = 'Спасибо! Заявка успешно отправлена. Скоро свяжусь с вами!';
+          msgDiv.style.color = '#C5A059'; // Бронзовый цвет
+          form.reset(); // Очищаем форму
+        } else {
+          throw new Error('Ошибка при отправке');
+        }
+      } catch (error) {
+        // Если сервер недоступен
+        msgDiv.textContent = 'Произошла ошибка. Пожалуйста, напишите мне в WhatsApp или Telegram напрямую.';
+        msgDiv.style.color = 'red';
+      }
+    });
+  }
 
 // Плавное появление галереи
 document.addEventListener("DOMContentLoaded", function() {
@@ -249,4 +275,62 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+// Активация эффекта параллакса для фото
+VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+    max: 10,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2,
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const contactButtons = document.querySelectorAll('.contact-buttons .btn');
+    
+    contactButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#C5A059', '#ffffff', '#222529'] // Бронза, белый и цвет сайта
+            });
+        });
+    });
+});
 
+document.addEventListener("DOMContentLoaded", () => {
+    const contactButtons = document.querySelectorAll('.contact-buttons .btn');
+    
+    contactButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Салют запускается мгновенно
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#C5A059', '#ffffff', '#25282b'] // Бронза, белый, асфальт
+            });
+            
+            // Больше ничего не блокируем. 
+            // Браузер сам откроет ссылку мгновенно, 
+            // а салют будет лететь поверх уже открывающегося окна/вкладки.
+        });
+    });
+});
+
+// Музыкальный проигрыватель
+const music = document.getElementById('bg-music');
+const btn = document.getElementById('music-btn');
+
+btn.addEventListener('click', () => {
+    if (music.paused) {
+        music.play().then(() => {
+            btn.classList.add('playing');
+        }).catch(error => {
+            console.error("Ошибка воспроизведения:", error);
+            alert("Не удалось включить музыку. Проверьте, есть ли файл music.mp3 в папке сайта.");
+        });
+    } else {
+        music.pause();
+        btn.classList.remove('playing');
+    }
+});
